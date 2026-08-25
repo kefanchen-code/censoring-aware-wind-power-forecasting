@@ -33,16 +33,40 @@ S1--S4 and `CAP_SEED=142` fixes the event-wise random cap depths in S4.
 - Files used: `2026.zip` and selected material derived from
   `turbine_fastlog.zip`
 - Published `2026.zip` MD5: `42a2264187912ca63214bacfbc8d4905`
+- Published `turbine_fastlog.zip` MD5: `483acf28d7a901faf5eac611412e1a1f`
 
 The 10-minute contamination analysis in
 `scripts/13_hot_contamination_did.py` reads
 `data/hill_of_towie/2026.zip`. The multi-turbine validation uses prepared
 one-minute files under `data/hill_of_towie/converted/`.
 
-The original fast-log-to-Parquet conversion step is not yet present in this
-release candidate. The compact reference outputs are included so the reported
-tables and quantitative figures can be checked, but this missing preparation
-step must be restored before the repository is made public.
+Rebuild the one-minute files directly from the 11.9 GB fast-log archive:
+
+```bash
+python scripts/20_hot_fastlog_to_1min.py --selftest
+python scripts/20_hot_fastlog_to_1min.py --list
+python scripts/20_hot_fastlog_to_1min.py
+```
+
+The converter implements the recovered archived contract: causal integer-
+second last-observation-carried-forward sampling, followed by one-minute means
+and one-minute power minima/maxima. A fully missing turbine-day remains a
+timestamp gap. A two-day T01 reconstruction (including the UTC day boundary)
+was checked element by element against the archived Parquet input with zero
+numerical difference.
+
+Rebuild the historical T11 truth-channel inputs after conversion:
+
+```bash
+python scripts/21_hot_truth_channel.py
+```
+
+The replacement script verifies the archived route composition before writing
+its outputs. The one-minute file contains 96,843 actual-route rows, 47,244
+power-curve rows, and 28,713 unavailable rows; the corresponding ten-minute
+counts are 10,294, 3,947, and 3,040. The historical neighbour route had zero
+coverage and is recorded as unavailable rather than filled using a new,
+unverifiable assumption.
 
 ## Attribution
 

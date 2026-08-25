@@ -46,6 +46,34 @@ python scripts/run_pap_benchmark.py \
   --config configs/pap_benchmark_semisyn.json compare
 ```
 
+### Tier 4: Hill of Towie reconstruction and real release events
+
+The Hill of Towie raw-to-derived chain is:
+
+```bash
+python scripts/20_hot_fastlog_to_1min.py --selftest
+python scripts/20_hot_fastlog_to_1min.py
+python scripts/21_hot_truth_channel.py
+python scripts/13_hot_contamination_did.py
+python scripts/14_hot_truth_channel_bias.py
+```
+
+The truth-channel manifest records input paths, route counts, fitted power-
+curve points, chronological clean-window hold-out MAE, and output SHA-256
+hashes. Script 21 fails closed if the complete public v2 inputs do not reproduce
+the archived route composition.
+
+Verify the reconstructed real release-event protocol and unchanged event list:
+
+```bash
+python scripts/63_release_event_validation.py --verify-protocol-only
+```
+
+After preparing the Altahullion data and running script 10, execute a model
+smoke test with `--smoke` or the full v1.3 run without it. New outputs go to
+`results/release_event_validation_v1_3/`; the archived v1.2 result is not
+overwritten.
+
 ## Manuscript result mapping
 
 | Manuscript evidence | Main input/configuration | Analysis or output |
@@ -61,6 +89,9 @@ python scripts/run_pap_benchmark.py \
 | Realistic S6 scenario | `scripts/62_real_command_stats.py`, `scripts/64_s6_realistic_scenario.py` | `pap_benchmark_semisyn_s6/` |
 | Direction across 13 turbines | `scripts/66_multi_turbine_data_prep.py`, `scripts/67_multi_turbine_benchmark.py` | `multi_turbine_validation/runs/` |
 | LOTO/LOFO tests | `scripts/70_loto_lofo.py` | `loto_lofo/loto_lofo_results.csv` |
+| Hill of Towie fast-log conversion | `scripts/20_hot_fastlog_to_1min.py` | `data/hill_of_towie/converted/` |
+| Rebuilt T11 truth channel | `scripts/21_hot_truth_channel.py` | `results/hot_truth_channel/` |
+| Real release-event validation | `protocols/release_event_protocol_v1_3.md`, `scripts/63_release_event_validation.py` | `release_event_validation_v1_3/` |
 | Quantitative paper figures | `paper_assets/figures/make_figures_paper1.py` | `figures/` |
 
 ## Frozen protocol
@@ -76,3 +107,8 @@ python scripts/run_pap_benchmark.py \
 The longer original Chinese protocol note is retained as
 `PROTOCOL_ORIGINAL_ZH.md` for provenance. The JSON configurations are the
 machine-readable source of truth.
+
+The separately versioned real release-event protocol is documented in
+`protocols/release_event_protocol_v1_3.md`. The legacy v1.2 document is missing;
+only its historical SHA-256 remains. The v1.3 document is therefore labelled a
+reconstructed replacement and receives its own hash and output directory.

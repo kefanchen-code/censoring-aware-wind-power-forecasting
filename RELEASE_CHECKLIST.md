@@ -4,9 +4,6 @@
 
 - [ ] Confirm the complete author list and software copyright holder.
 - [ ] Select and add an open-source `LICENSE` approved by the supervisor or institution.
-- [ ] Restore or rewrite the Hill of Towie fast-log-to-Parquet preparation step.
-- [ ] Recover or replace the missing frozen protocol source used by the real release-event validation.
-- [ ] Decide whether the historical truth-channel analysis is reproducible enough to retain in the public code release.
 - [ ] Translate the remaining Chinese-only analysis-script docstrings and console labels needed by external users.
 - [ ] Validate the locked environment on a second clean machine.
 - [ ] Run the full benchmark from freshly downloaded data and compare all paper numbers.
@@ -23,3 +20,6 @@
 - [x] Public Altahullion download URL and archive checksum recorded.
 - [x] Compact reference outputs collected for figure and table checking.
 - [x] Core test suite executed successfully before repository creation.
+- [x] Hill of Towie fast-log-to-Parquet conversion restored and checked exactly across two archived turbine-days.
+- [x] Missing release-event protocol replaced by an explicitly reconstructed v1.3 protocol without overwriting the legacy v1.2 freeze.
+- [x] Historical truth-channel assets rebuilt with exact archived route counts and a recomputed hold-out error.

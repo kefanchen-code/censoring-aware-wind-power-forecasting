@@ -22,6 +22,7 @@ paper.
 configs/             Frozen JSON experiment configurations
 data/                Local data directory (downloaded data are ignored by Git)
 paper_assets/        Quantitative figure-generation code
+protocols/           Auditable real-data validation protocol documents
 reference_results/   Compact outputs used to verify paper figures and tables
 scripts/             Data preparation, benchmark, robustness, and validation entry points
 src/                 Reusable forecasting and evaluation package
@@ -104,6 +105,30 @@ when `benchmark_status.json` reports both `complete: true` and
 Detailed result-to-command mappings are provided in
 [REPRODUCIBILITY.md](REPRODUCIBILITY.md). Data sources and licensing are
 documented in [DATA.md](DATA.md).
+
+## Optional real-data reconstruction audits
+
+After downloading both Hill of Towie archives, rebuild the one-minute fast-log
+inputs and the historical T11 truth-channel analysis with:
+
+```bash
+python scripts/20_hot_fastlog_to_1min.py --selftest
+python scripts/20_hot_fastlog_to_1min.py
+python scripts/21_hot_truth_channel.py
+python scripts/14_hot_truth_channel_bias.py
+```
+
+The real Altahullion release-event protocol can be verified without retraining:
+
+```bash
+python scripts/63_release_event_validation.py --verify-protocol-only
+```
+
+The unavailable legacy v1.2 protocol source is not imitated. Its historical
+hash is retained, while
+[`protocols/release_event_protocol_v1_3.md`](protocols/release_event_protocol_v1_3.md)
+is a separately hashed reconstruction from the executable code and frozen
+122-event artifact.
 
 ## Information-separation safeguards
 

@@ -116,10 +116,12 @@
   },
   "reported_holdout": {
     "route": "power_curve",
-    "mae_kw": 65.0,
-    "mae_frac_rated": 0.028,
-    "validated_on": "clean windows only",
-    "provenance": "archive/hot_real_layer/两次数据集实验结果汇总.md"
+    "mae_kw": 64.36124978688375,
+    "mae_frac_rated": 0.027983152081253803,
+    "validated_on": "chronological final 30% of clean actual-route rows",
+    "train_rows": 67790,
+    "holdout_rows": 29053,
+    "provenance": "results/hot_truth_channel/truth_channel_manifest.json"
   },
   "effect_size": {
     "delta_wis": 0.00383,
@@ -175,7 +177,7 @@
       "mean_abs_bias_frac_rated": 0.04887612767924989,
       "mean_wind_ms": 7.926894449601755,
       "mean_depth_pu": 0.46938511362509777,
-      "ratio_to_reported_mae": 1.7294629794196115
+      "ratio_to_reported_mae": 1.7466269538660193
     },
     {
       "sample": "truth_channel_T11_10min.parquet / overall Δv",
@@ -189,7 +191,7 @@
       "mean_abs_bias_frac_rated": 0.019661078376130993,
       "mean_wind_ms": 7.926894449601755,
       "mean_depth_pu": 0.46938511362509777,
-      "ratio_to_reported_mae": 0.6956996963861736
+      "ratio_to_reported_mae": 0.7026041354827266
     },
     {
       "sample": "truth_channel_T11_10min.parquet / linearised dP/dv·Δv",
@@ -203,7 +205,7 @@
       "mean_abs_bias_frac_rated": 0.04685884588236402,
       "mean_wind_ms": 7.926894449601755,
       "mean_depth_pu": 0.46938511362509777,
-      "ratio_to_reported_mae": 1.6580822389144192
+      "ratio_to_reported_mae": 1.6745377985404024
     },
     {
       "sample": "truth_channel_T11_1min.parquet / depth-specific Δv",
@@ -217,7 +219,7 @@
       "mean_abs_bias_frac_rated": 0.04677822158166221,
       "mean_wind_ms": 7.877471364970507,
       "mean_depth_pu": 0.5488405195844208,
-      "ratio_to_reported_mae": 1.6552293790434323
+      "ratio_to_reported_mae": 1.6716566255950638
     },
     {
       "sample": "truth_channel_T11_1min.parquet / overall Δv",
@@ -231,7 +233,7 @@
       "mean_abs_bias_frac_rated": 0.02046588785588447,
       "mean_wind_ms": 7.877471364970507,
       "mean_depth_pu": 0.5488405195844208,
-      "ratio_to_reported_mae": 0.7241775702851427
+      "ratio_to_reported_mae": 0.7313646367091995
     },
     {
       "sample": "truth_channel_T11_1min.parquet / linearised dP/dv·Δv",
@@ -245,7 +247,7 @@
       "mean_abs_bias_frac_rated": 0.046290552425750364,
       "mean_wind_ms": 7.877471364970507,
       "mean_depth_pu": 0.5488405195844208,
-      "ratio_to_reported_mae": 1.6379733935265512
+      "ratio_to_reported_mae": 1.6542293838570412
     }
   ],
   "bias_by_depth": [
@@ -263,7 +265,7 @@
       "mean_depth_pu": 0.15770364817591204,
       "depth_bin_pu": "<0.25",
       "delta_v_ms": -1.041474760310239,
-      "ratio_to_reported_mae": 2.478482027905024
+      "ratio_to_reported_mae": 2.503079606863967
     },
     {
       "sample": "truth_channel_T11_10min.parquet / 0.25-0.4",
@@ -279,7 +281,7 @@
       "mean_depth_pu": 0.3267132708155726,
       "depth_bin_pu": "0.25-0.4",
       "delta_v_ms": -0.2786990579501816,
-      "ratio_to_reported_mae": 0.923315319417438
+      "ratio_to_reported_mae": 0.9324787191184113
     },
     {
       "sample": "truth_channel_T11_10min.parquet / 0.4-0.6",
@@ -295,7 +297,7 @@
       "mean_depth_pu": 0.4952819719847189,
       "depth_bin_pu": "0.4-0.6",
       "delta_v_ms": 0.2100566771506528,
-      "ratio_to_reported_mae": 0.7911115014798187
+      "ratio_to_reported_mae": 0.7989628505732903
     },
     {
       "sample": "truth_channel_T11_10min.parquet / 0.6-0.95",
@@ -311,7 +313,7 @@
       "mean_depth_pu": 0.7590173314261003,
       "depth_bin_pu": "0.6-0.95",
       "delta_v_ms": 0.5719699142492586,
-      "ratio_to_reported_mae": 2.3410018589345696
+      "ratio_to_reported_mae": 2.3642350223869784
     },
     {
       "sample": "truth_channel_T11_1min.parquet / <0.25",
@@ -327,7 +329,7 @@
       "mean_depth_pu": 0.17409149635302085,
       "depth_bin_pu": "<0.25",
       "delta_v_ms": -1.041474760310239,
-      "ratio_to_reported_mae": 2.1148718551213745
+      "ratio_to_reported_mae": 2.135860801927806
     },
     {
       "sample": "truth_channel_T11_1min.parquet / 0.25-0.4",
@@ -343,7 +345,7 @@
       "mean_depth_pu": 0.33212553282182433,
       "depth_bin_pu": "0.25-0.4",
       "delta_v_ms": -0.2786990579501816,
-      "ratio_to_reported_mae": 0.6837121781640078
+      "ratio_to_reported_mae": 0.6904976476966618
     },
     {
       "sample": "truth_channel_T11_1min.parquet / 0.4-0.6",
@@ -359,7 +361,7 @@
       "mean_depth_pu": 0.497120413658165,
       "depth_bin_pu": "0.4-0.6",
       "delta_v_ms": 0.2100566771506528,
-      "ratio_to_reported_mae": 0.6891090413975316
+      "ratio_to_reported_mae": 0.6959480718469172
     },
     {
       "sample": "truth_channel_T11_1min.parquet / 0.6-0.95",
@@ -375,7 +377,7 @@
       "mean_depth_pu": 0.7759042061408099,
       "depth_bin_pu": "0.6-0.95",
       "delta_v_ms": 0.5719699142492586,
-      "ratio_to_reported_mae": 2.6106553482401984
+      "ratio_to_reported_mae": 2.636564675134614
     }
   ],
   "provenance": "scripts/14_hot_truth_channel_bias.py"

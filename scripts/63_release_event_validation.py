@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """Release-event validation layer on the real Altahullion T11 record (C1).
 
-Implements the frozen, outcome-blind protocol in
-writing/22_release_event_protocol.md: the protocol document and the event list
-are hashed into results/release_event_validation/protocol_freeze.json before
-any score is computed, and every subsequent run verifies that hash.
+Implements the auditable replacement protocol in
+``protocols/release_event_protocol_v1_3.md``.  The missing legacy v1.2 source
+cannot be authenticated from its hash alone, so v1.3 is explicitly marked as
+reconstructed from the executable v1.2 code, the unchanged 122-event list,
+and the archived v1.2 result summary.  It does not claim to reproduce the
+missing document byte-for-byte.
 
 Track semantics: there is no latent PAP truth on real data. Models are fitted
 on observable labels only (U rows as points, R rows as right-censored at
@@ -62,9 +64,20 @@ from censored_wind_power.benchmark.scoring import (
 )
 from censored_wind_power.benchmark.protocol import set_determinism, write_json
 
-PROTOCOL_PATH = PROJECT_DIR / "writing" / "22_release_event_protocol.md"
+PROTOCOL_PATH = PROJECT_DIR / "protocols" / "release_event_protocol_v1_3.md"
+PROTOCOL_VERSION = "v1.3-reconstructed"
+PROTOCOL_ID = "release-event-reconstructed-v1.3"
+LEGACY_PROTOCOL_SHA256 = "8aa3bca2cce62a559cb55d803d18beb41ea26535473976e654c3cce40772d1bf"
+FROZEN_EVENT_SHA256 = "e351c076d155dea95d94047b2c5a0bc365c7a680b9a859565695df36387d63fe"
+FROZEN_EVENT_CANONICAL_SHA256 = (
+    "a7f4c8e896f05453b323071659c2079ba1600dd6ca7083c37415ecc7170723de"
+)
+FROZEN_EVENT_COUNT = 122
 EVENT_CSV = PROJECT_DIR / "results" / "altahullion_audit" / "qualified_release_events.csv"
-OUT_DIR = PROJECT_DIR / "results" / "release_event_validation"
+EVENT_REFERENCE_CSV = (
+    PROJECT_DIR / "reference_results" / "altahullion_audit" / "qualified_release_events.csv"
+)
+OUT_DIR = PROJECT_DIR / "results" / "release_event_validation_v1_3"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 QUANTILE_LEVELS = np.asarray([0.05, 0.10, 0.20, 0.30, 0.50, 0.70, 0.80, 0.90, 0.95])
@@ -95,22 +108,67 @@ def sha256_of(path: Path) -> str:
     return digest.hexdigest()
 
 
-def freeze_or_verify_protocol() -> dict:
-    """Hash the protocol and event list before any score exists."""
+def canonical_text_sha256(path: Path) -> str:
+    """Hash text with LF newlines so CSV identity is operating-system neutral."""
 
-    freeze_path = OUT_DIR / "protocol_freeze.json"
+    content = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(content).hexdigest()
+
+
+def freeze_or_verify_protocol(
+    protocol_path: Path = PROTOCOL_PATH,
+    event_csv: Path = EVENT_CSV,
+    output_dir: Path = OUT_DIR,
+) -> dict:
+    """Hash and validate the protocol and unchanged event list before scoring."""
+
+    if not protocol_path.exists():
+        raise FileNotFoundError("missing protocol document: %s" % protocol_path)
+    if not event_csv.exists():
+        raise FileNotFoundError("missing frozen event list: %s" % event_csv)
+    event_count = int(len(pd.read_csv(event_csv)))
+    event_sha256 = sha256_of(event_csv)
+    event_canonical_sha256 = canonical_text_sha256(event_csv)
+    if event_count != FROZEN_EVENT_COUNT:
+        raise RuntimeError(
+            "release-event count changed: expected %d, found %d"
+            % (FROZEN_EVENT_COUNT, event_count)
+        )
+    if event_canonical_sha256 != FROZEN_EVENT_CANONICAL_SHA256:
+        raise RuntimeError(
+            "release-event list changed: expected canonical SHA-256 %s, found %s"
+            % (FROZEN_EVENT_CANONICAL_SHA256, event_canonical_sha256)
+        )
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    freeze_path = output_dir / "protocol_freeze.json"
     payload = {
-        "protocol_document": "writing/22_release_event_protocol.md",
-        "protocol_version": "v1.2",
-        "protocol_sha256": sha256_of(PROTOCOL_PATH),
+        "protocol_document": "protocols/release_event_protocol_v1_3.md",
+        "protocol_version": PROTOCOL_VERSION,
+        "protocol_sha256": sha256_of(protocol_path),
+        "legacy_v1_2_protocol_sha256_unrecovered": LEGACY_PROTOCOL_SHA256,
+        "reconstruction_status": (
+            "replacement reconstructed from executable code and frozen artifacts; "
+            "not a byte-for-byte recovery of v1.2"
+        ),
         "event_list": "results/altahullion_audit/qualified_release_events.csv",
-        "event_list_sha256": sha256_of(EVENT_CSV),
-        "event_count_frozen": 122,
+        "event_list_sha256": FROZEN_EVENT_SHA256,
+        "event_list_sha256_scope": "legacy v1.2 CRLF bytes",
+        "event_list_canonical_sha256": event_canonical_sha256,
+        "event_list_file_sha256_at_freeze": event_sha256,
+        "event_count_frozen": event_count,
         "frozen_utc": datetime.now(timezone.utc).isoformat(),
     }
     if freeze_path.exists():
         frozen = json.loads(freeze_path.read_text(encoding="utf-8"))
-        for key in ("protocol_version", "protocol_sha256", "event_list_sha256", "event_count_frozen"):
+        for key in (
+            "protocol_version",
+            "protocol_sha256",
+            "event_list_sha256",
+            "event_list_canonical_sha256",
+            "event_count_frozen",
+            "legacy_v1_2_protocol_sha256_unrecovered",
+        ):
             if frozen.get(key) != payload[key]:
                 raise RuntimeError(
                     "frozen release-event protocol changed (%s); bump the"
@@ -152,7 +210,7 @@ def real_context(output_dir: Path, device: str) -> BenchmarkContext:
     edges = np.linspace(0.0, 1.06, 107)
     return BenchmarkContext(
         scenario="release_event_real",
-        protocol_id="release-event-frozen-v1.2",
+        protocol_id=PROTOCOL_ID,
         output_dir=output_dir,
         device=device,
         config=config,
@@ -193,11 +251,22 @@ def holm_adjust(p_values: list[float]) -> list[float]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="release-event validation layer")
     parser.add_argument("--smoke", action="store_true", help="one seed, two epochs")
+    parser.add_argument(
+        "--verify-protocol-only",
+        action="store_true",
+        help="verify the protocol and 122-event artifact without fitting models",
+    )
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     arguments = parser.parse_args()
 
-    freeze = freeze_or_verify_protocol()
+    event_csv = EVENT_CSV
+    if arguments.verify_protocol_only and not event_csv.exists():
+        event_csv = EVENT_REFERENCE_CSV
+    freeze = freeze_or_verify_protocol(event_csv=event_csv)
     print("protocol frozen:", freeze["protocol_sha256"][:16])
+    print("event list verified:", freeze["event_count_frozen"], "rows")
+    if arguments.verify_protocol_only:
+        return 0
 
     seeds = SEEDS[:1] if arguments.smoke else SEEDS
     frame = load_real_frame()

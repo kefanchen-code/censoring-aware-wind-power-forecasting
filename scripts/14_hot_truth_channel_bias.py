@@ -21,7 +21,7 @@ PAP 重建路线：A 功率曲线路（把机舱风速送入未限功功率曲�
 4. 把偏差量级与待检测的效应量（ΔWIS）并列，判断信噪比是否结构性不足。
 
 输入：``results/hot_contamination_did/``（脚本 13 的产出）
-      ``archive/hot_real_layer/results/hot_truth_channel/*.parquet``
+      ``results/hot_truth_channel/*.parquet``（脚本 21 的可复现产出）
 输出：``results/hot_truth_channel_bias/``
 
 用法：
@@ -38,23 +38,21 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 DID_DIR = PROJECT_DIR / "results" / "hot_contamination_did"
-TRUTH_DIR = (
-    PROJECT_DIR / "archive" / "hot_real_layer" / "results" / "hot_truth_channel"
-)
+TRUTH_DIR = PROJECT_DIR / "results" / "hot_truth_channel"
 OUT_DIR = PROJECT_DIR / "results" / "hot_truth_channel_bias"
 
 RATED = 2300.0
 PC_BIN = 0.5      # 与脚本 21 的功率曲线分箱宽度一致
 MIN_BIN_COUNT = 10
 
-# 脚本 21 报告的 hold-out 误差，出处 archive/hot_real_layer/两次数据集实验结果汇总.md
-# 第 183 行（"功率曲线路 MAE≈65 kW / 2.8% 额定"）。仅用于并列，不参与计算。
+# 运行时由 scripts/21_hot_truth_channel.py 的可复现 manifest 覆盖。下面的
+# 64.4 kW 只是完整 v2 数据上的预期近似值，用于直接调用 process() 时兜底。
 REPORTED_HOLDOUT = {
     "route": "power_curve",
-    "mae_kw": 65.0,
-    "mae_frac_rated": 0.028,
-    "validated_on": "clean windows only",
-    "provenance": "archive/hot_real_layer/两次数据集实验结果汇总.md",
+    "mae_kw": 64.4,
+    "mae_frac_rated": 64.4 / RATED,
+    "validated_on": "chronological final 30% of clean actual-route rows",
+    "provenance": "results/hot_truth_channel/truth_channel_manifest.json",
 }
 
 # 第一层真实数据上的待检测效应量，同一份汇总第 26 行与预测层结果。
@@ -63,6 +61,25 @@ EFFECT_SIZE = {
     "delta_wis_relative": 0.077,
     "note": "B4 vs B6 主评分差，HOT 真实层",
 }
+
+
+def load_recomputed_holdout():
+    """Load the power-curve validation error produced by the rebuilt pipeline."""
+
+    path = TRUTH_DIR / "truth_channel_manifest.json"
+    if not path.exists():
+        raise SystemExit("missing %s; run scripts/21_hot_truth_channel.py first" % path)
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    curve = manifest["outputs"]["truth_channel_T11_1min.parquet"]["power_curve"]
+    return {
+        "route": "power_curve",
+        "mae_kw": float(curve["holdout_mae_kW"]),
+        "mae_frac_rated": float(curve["holdout_mae_fraction_rated"]),
+        "validated_on": "chronological final 30% of clean actual-route rows",
+        "train_rows": int(curve["train_rows"]),
+        "holdout_rows": int(curve["holdout_rows"]),
+        "provenance": path.relative_to(PROJECT_DIR).as_posix(),
+    }
 
 
 def load_did():
@@ -244,7 +261,9 @@ def process(path, headline, by_depth):
 
 
 def main():
+    global REPORTED_HOLDOUT
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    REPORTED_HOLDOUT = load_recomputed_holdout()
     headline, by_depth, by_band = load_did()
 
     print("=== 脚本 13 实测的 Δv（主规格）===")

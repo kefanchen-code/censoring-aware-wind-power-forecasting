@@ -39,8 +39,8 @@ def load_real_frame() -> pd.DataFrame:
     """Classified real record kept on the natural one-minute clock.
 
     Columns: observed_pu, cap_pu, censored, wind_ms, label, strict_r, usable,
-    with a DatetimeIndex covering every recorded minute. Per protocol v1.2 the
-    censored rows align with the release-event screening criterion: every
+    with a DatetimeIndex covering every recorded minute. The reconstructed
+    protocol v1.3 preserves the executable v1.2 semantics: every
     active curtailment minute (PowerRed>0; audit labels R, I and X alike) is
     right-censored at PowerRef, while U rows are free labels. Minutes missing
     PowerRef, inactive minutes and record gaps are unusable. ``strict_r``

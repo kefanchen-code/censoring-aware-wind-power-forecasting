@@ -2,3 +2,4 @@
 *.parquet binary
 *.png binary
 *.pdf binary
+reference_results/altahullion_audit/qualified_release_events.csv binary

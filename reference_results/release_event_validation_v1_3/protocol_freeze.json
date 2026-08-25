@@ -1,0 +1,14 @@
+{
+  "protocol_document": "protocols/release_event_protocol_v1_3.md",
+  "protocol_version": "v1.3-reconstructed",
+  "protocol_sha256": "0a383eacf09796f42b09f29f7a8e0d9fae3ac4c814ad6cae9c733b0a5b6b2739",
+  "legacy_v1_2_protocol_sha256_unrecovered": "8aa3bca2cce62a559cb55d803d18beb41ea26535473976e654c3cce40772d1bf",
+  "reconstruction_status": "replacement reconstructed from executable code and frozen artifacts; not a byte-for-byte recovery of v1.2",
+  "event_list": "results/altahullion_audit/qualified_release_events.csv",
+  "event_list_sha256": "e351c076d155dea95d94047b2c5a0bc365c7a680b9a859565695df36387d63fe",
+  "event_list_sha256_scope": "legacy v1.2 CRLF bytes",
+  "event_list_canonical_sha256": "a7f4c8e896f05453b323071659c2079ba1600dd6ca7083c37415ecc7170723de",
+  "event_list_file_sha256_at_freeze": "e351c076d155dea95d94047b2c5a0bc365c7a680b9a859565695df36387d63fe",
+  "event_count_frozen": 122,
+  "frozen_utc": "2026-08-25T05:13:47.656530+00:00"
+}
