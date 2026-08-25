@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived release and the associated article."
+type: software
+title: "Censoring-aware probabilistic forecasting of single-turbine potential available power"
+version: 0.1.0
+date-released: 2026-08-25
+authors:
+  - family-names: Chen
+    given-names: Kefan
+repository-code: "https://github.com/kefanchen-code/censoring-aware-wind-power-forecasting"

@@ -1,0 +1,63 @@
+{
+  "protocol_id": "b79a981821302922388678de32aa3a02642c48dcbcaded8d85e4fea2af3d83c4",
+  "experiment_id": "3f16bfa0f831ec8c264b8b7ef5b8d4202b7cf9b5ab058d6825527e61198af868",
+  "primary_cross_model_score": "WIS",
+  "comparisons": [
+    {
+      "family": "S0_negative_control",
+      "scenario": "S0_no_curtailment",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0,
+      "cluster_bootstrap_ci_95": [
+        0.0,
+        0.0
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 1.0,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0,
+        0.0
+      ],
+      "equivalence_margin": 0.005,
+      "equivalent_within_margin": true,
+      "holm_adjusted_p_within_family": 1.0,
+      "holm_family_size": 2
+    },
+    {
+      "family": "S0_negative_control",
+      "scenario": "S0_no_curtailment",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "ORACLE",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.00030907266114824723,
+      "cluster_bootstrap_ci_95": [
+        0.00010848196568215716,
+        0.0005275397731271102
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.016099839001609984,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0002507050363117015,
+        0.0003446820029430959
+      ],
+      "equivalence_margin": 0.005,
+      "equivalent_within_margin": true,
+      "holm_adjusted_p_within_family": 0.03219967800321997,
+      "holm_family_size": 2
+    }
+  ]
+}

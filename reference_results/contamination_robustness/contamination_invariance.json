@@ -1,0 +1,78 @@
+{
+  "claim": "B0_persistence and B0_climatology never consume the wind channel, so contamination must leave their forecasts bitwise unchanged",
+  "clean_run": "pap_benchmark_semisyn",
+  "checks": {
+    "pap_benchmark_semisyn_contam100": [
+      {
+        "scenario": "S1_fixed_50pct",
+        "model": "B0_persistence",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S1_fixed_50pct",
+        "model": "B0_climatology",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S2_fixed_70pct",
+        "model": "B0_persistence",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S2_fixed_70pct",
+        "model": "B0_climatology",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S3_fixed_85pct",
+        "model": "B0_persistence",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S3_fixed_85pct",
+        "model": "B0_climatology",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S4_random_uniform",
+        "model": "B0_persistence",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S4_random_uniform",
+        "model": "B0_climatology",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S5_wind_triggered",
+        "model": "B0_persistence",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      },
+      {
+        "scenario": "S5_wind_triggered",
+        "model": "B0_climatology",
+        "run": "fixed",
+        "bitwise_identical": true,
+        "max_abs_quantile_gap": 0.0
+      }
+    ]
+  }
+}

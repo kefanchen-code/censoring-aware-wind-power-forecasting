@@ -1,0 +1,3 @@
+﻿farm,turbine_type,n_reference_turbines,basis_minutes,delta_v_ms,delta_v_ci_low_ms,delta_v_ci_high_ms,relative_delta,relative_ci_low,relative_ci_high,placebo_significant,event_study_delta_v_ms,provenance
+Altahullion (ALTA2),1330 kW,5,10,1.45,,,0.167,0.132,0.206,False,1.02,scripts/12_measure_censoring_contamination.py
+Hill of Towie,SWT-2.3-VS-82 (2300 kW),21,10,-0.2020171365562823,-0.34981637503545177,-0.05979494428100452,-0.024705424144062096,-0.039036824360994996,-0.011192620935636442,False,0.13919950126250077,scripts/13_hot_contamination_did.py

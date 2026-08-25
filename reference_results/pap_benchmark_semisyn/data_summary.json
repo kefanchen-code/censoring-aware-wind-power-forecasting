@@ -1,0 +1,272 @@
+{
+  "S1_fixed_50pct": {
+    "data_signature": "10f0affa1a36e97a10fe35f947ec8a6a401f519c43b1164b1ed4cfb417578d81",
+    "feature_names": [
+      "observed_power_pu",
+      "wind_speed_train_standardized",
+      "cap_pu",
+      "censoring_indicator"
+    ],
+    "wind_standardization_train_only": {
+      "mean": 8.209723197172298,
+      "std": 2.1608619380276086
+    },
+    "splits": {
+      "train": {
+        "rows": 53564,
+        "segments": 290,
+        "wind_mean_ms": 8.209723197172298,
+        "wind_q90_ms": 11.088333333333335,
+        "truth_mean_pu": 0.35774515656814776,
+        "truth_q90_pu": 0.7250125313283208,
+        "policy_rate": 0.6000485400642223,
+        "binding_rate": 0.13856321409902173,
+        "active_cap_mean_pu": 0.5,
+        "valid_windows": 32578,
+        "window_segments": 233
+      },
+      "validation": {
+        "rows": 11060,
+        "segments": 31,
+        "wind_mean_ms": 8.75217827004219,
+        "wind_q90_ms": 12.750166666666667,
+        "truth_mean_pu": 0.4224625032261133,
+        "truth_q90_pu": 0.9459812030075189,
+        "policy_rate": 0.6,
+        "binding_rate": 0.19213381555153708,
+        "active_cap_mean_pu": 0.5,
+        "valid_windows": 8804,
+        "window_segments": 25
+      },
+      "test": {
+        "rows": 11471,
+        "segments": 21,
+        "wind_mean_ms": 10.612377589864298,
+        "wind_q90_ms": 13.933333333333334,
+        "truth_mean_pu": 0.6326871717413368,
+        "truth_q90_pu": 0.998045112781955,
+        "policy_rate": 0.5999476941853369,
+        "binding_rate": 0.381309388893732,
+        "active_cap_mean_pu": 0.5,
+        "valid_windows": 9922,
+        "window_segments": 20
+      }
+    }
+  },
+  "S2_fixed_70pct": {
+    "data_signature": "10f0affa1a36e97a10fe35f947ec8a6a401f519c43b1164b1ed4cfb417578d81",
+    "feature_names": [
+      "observed_power_pu",
+      "wind_speed_train_standardized",
+      "cap_pu",
+      "censoring_indicator"
+    ],
+    "wind_standardization_train_only": {
+      "mean": 8.209723197172298,
+      "std": 2.1608619380276086
+    },
+    "splits": {
+      "train": {
+        "rows": 53564,
+        "segments": 290,
+        "wind_mean_ms": 8.209723197172298,
+        "wind_q90_ms": 11.088333333333335,
+        "truth_mean_pu": 0.35774515656814776,
+        "truth_q90_pu": 0.7250125313283208,
+        "policy_rate": 0.6000485400642223,
+        "binding_rate": 0.06244865954745725,
+        "active_cap_mean_pu": 0.7000000000004158,
+        "valid_windows": 32578,
+        "window_segments": 233
+      },
+      "validation": {
+        "rows": 11060,
+        "segments": 31,
+        "wind_mean_ms": 8.75217827004219,
+        "wind_q90_ms": 12.750166666666667,
+        "truth_mean_pu": 0.4224625032261133,
+        "truth_q90_pu": 0.9459812030075189,
+        "policy_rate": 0.6,
+        "binding_rate": 0.12613019891500904,
+        "active_cap_mean_pu": 0.6999999999999126,
+        "valid_windows": 8804,
+        "window_segments": 25
+      },
+      "test": {
+        "rows": 11471,
+        "segments": 21,
+        "wind_mean_ms": 10.612377589864298,
+        "wind_q90_ms": 13.933333333333334,
+        "truth_mean_pu": 0.6326871717413368,
+        "truth_q90_pu": 0.998045112781955,
+        "policy_rate": 0.5999476941853369,
+        "binding_rate": 0.27321070525673435,
+        "active_cap_mean_pu": 0.6999999999999091,
+        "valid_windows": 9922,
+        "window_segments": 20
+      }
+    }
+  },
+  "S3_fixed_85pct": {
+    "data_signature": "10f0affa1a36e97a10fe35f947ec8a6a401f519c43b1164b1ed4cfb417578d81",
+    "feature_names": [
+      "observed_power_pu",
+      "wind_speed_train_standardized",
+      "cap_pu",
+      "censoring_indicator"
+    ],
+    "wind_standardization_train_only": {
+      "mean": 8.209723197172298,
+      "std": 2.1608619380276086
+    },
+    "splits": {
+      "train": {
+        "rows": 53564,
+        "segments": 290,
+        "wind_mean_ms": 8.209723197172298,
+        "wind_q90_ms": 11.088333333333335,
+        "truth_mean_pu": 0.35774515656814776,
+        "truth_q90_pu": 0.7250125313283208,
+        "policy_rate": 0.6000485400642223,
+        "binding_rate": 0.029329400343514302,
+        "active_cap_mean_pu": 0.8499999999995715,
+        "valid_windows": 32578,
+        "window_segments": 233
+      },
+      "validation": {
+        "rows": 11060,
+        "segments": 31,
+        "wind_mean_ms": 8.75217827004219,
+        "wind_q90_ms": 12.750166666666667,
+        "truth_mean_pu": 0.4224625032261133,
+        "truth_q90_pu": 0.9459812030075189,
+        "policy_rate": 0.6,
+        "binding_rate": 0.08806509945750451,
+        "active_cap_mean_pu": 0.850000000000053,
+        "valid_windows": 8804,
+        "window_segments": 25
+      },
+      "test": {
+        "rows": 11471,
+        "segments": 21,
+        "wind_mean_ms": 10.612377589864298,
+        "wind_q90_ms": 13.933333333333334,
+        "truth_mean_pu": 0.6326871717413368,
+        "truth_q90_pu": 0.998045112781955,
+        "policy_rate": 0.5999476941853369,
+        "binding_rate": 0.20085432830616337,
+        "active_cap_mean_pu": 0.8500000000000641,
+        "valid_windows": 9922,
+        "window_segments": 20
+      }
+    }
+  },
+  "S4_random_uniform": {
+    "data_signature": "10f0affa1a36e97a10fe35f947ec8a6a401f519c43b1164b1ed4cfb417578d81",
+    "feature_names": [
+      "observed_power_pu",
+      "wind_speed_train_standardized",
+      "cap_pu",
+      "censoring_indicator"
+    ],
+    "wind_standardization_train_only": {
+      "mean": 8.209723197172298,
+      "std": 2.1608619380276086
+    },
+    "splits": {
+      "train": {
+        "rows": 53564,
+        "segments": 290,
+        "wind_mean_ms": 8.209723197172298,
+        "wind_q90_ms": 11.088333333333335,
+        "truth_mean_pu": 0.35774515656814776,
+        "truth_q90_pu": 0.7250125313283208,
+        "policy_rate": 0.6000485400642223,
+        "binding_rate": 0.11834441042491226,
+        "active_cap_mean_pu": 0.6065400900434789,
+        "valid_windows": 32578,
+        "window_segments": 233
+      },
+      "validation": {
+        "rows": 11060,
+        "segments": 31,
+        "wind_mean_ms": 8.75217827004219,
+        "wind_q90_ms": 12.750166666666667,
+        "truth_mean_pu": 0.4224625032261133,
+        "truth_q90_pu": 0.9459812030075189,
+        "policy_rate": 0.6,
+        "binding_rate": 0.16663652802893308,
+        "active_cap_mean_pu": 0.6028911227437411,
+        "valid_windows": 8804,
+        "window_segments": 25
+      },
+      "test": {
+        "rows": 11471,
+        "segments": 21,
+        "wind_mean_ms": 10.612377589864298,
+        "wind_q90_ms": 13.933333333333334,
+        "truth_mean_pu": 0.6326871717413368,
+        "truth_q90_pu": 0.998045112781955,
+        "policy_rate": 0.5999476941853369,
+        "binding_rate": 0.32769592886409205,
+        "active_cap_mean_pu": 0.6080843446074757,
+        "valid_windows": 9922,
+        "window_segments": 20
+      }
+    }
+  },
+  "S5_wind_triggered": {
+    "data_signature": "10f0affa1a36e97a10fe35f947ec8a6a401f519c43b1164b1ed4cfb417578d81",
+    "feature_names": [
+      "observed_power_pu",
+      "wind_speed_train_standardized",
+      "cap_pu",
+      "censoring_indicator"
+    ],
+    "wind_standardization_train_only": {
+      "mean": 8.209723197172298,
+      "std": 2.1608619380276086
+    },
+    "splits": {
+      "train": {
+        "rows": 53564,
+        "segments": 290,
+        "wind_mean_ms": 8.209723197172298,
+        "wind_q90_ms": 11.088333333333335,
+        "truth_mean_pu": 0.35774515656814776,
+        "truth_q90_pu": 0.7250125313283208,
+        "policy_rate": 0.04695317750728101,
+        "binding_rate": 0.04695317750728101,
+        "active_cap_mean_pu": 0.5999999999999817,
+        "valid_windows": 32578,
+        "window_segments": 233
+      },
+      "validation": {
+        "rows": 11060,
+        "segments": 31,
+        "wind_mean_ms": 8.75217827004219,
+        "wind_q90_ms": 12.750166666666667,
+        "truth_mean_pu": 0.4224625032261133,
+        "truth_q90_pu": 0.9459812030075189,
+        "policy_rate": 0.13128390596745027,
+        "binding_rate": 0.13119349005424955,
+        "active_cap_mean_pu": 0.6000000000000149,
+        "valid_windows": 8804,
+        "window_segments": 25
+      },
+      "test": {
+        "rows": 11471,
+        "segments": 21,
+        "wind_mean_ms": 10.612377589864298,
+        "wind_q90_ms": 13.933333333333334,
+        "truth_mean_pu": 0.6326871717413368,
+        "truth_q90_pu": 0.998045112781955,
+        "policy_rate": 0.2963996164240258,
+        "binding_rate": 0.29622526370848223,
+        "active_cap_mean_pu": 0.5999999999999628,
+        "valid_windows": 9922,
+        "window_segments": 20
+      }
+    }
+  }
+}

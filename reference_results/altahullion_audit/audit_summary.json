@@ -1,0 +1,103 @@
+{
+  "dataset": "Altahullion T11 (Station 1301257)",
+  "source": "Zenodo DOI: 10.5281/zenodo.19948235",
+  "license": "CC-BY-4.0",
+  "resolution": "1 min",
+  "time_span": "2025-09-04T00:00:00 to 2026-02-28T23:59:00",
+  "total_records": 256320,
+  "rated_power_kw": 1330.0,
+  "label_distribution": {
+    "U": 107835,
+    "X": 69996,
+    "R": 63403,
+    "I": 15086
+  },
+  "active_records": 188539,
+  "R_records": 63403,
+  "U_records": 107835,
+  "raw_release_transitions": 2505,
+  "qualified_release_events_pre_outcome": 122,
+  "release_events_with_post_power_rise_gt_10pct": 55,
+  "normal_segments_for_synthetic": 342,
+  "normal_records_for_synthetic": 76095,
+  "mean_R_tracking_error_kw": 14.464648480281815,
+  "synthetic_scenarios": {
+    "S0_no_curtailment": {
+      "binding_rate": 0.0,
+      "policy_coverage": 0.0,
+      "n_records": 76095,
+      "n_censored": 0,
+      "n_events": 0,
+      "cap_mean_kw": 1396.5,
+      "event_seed": 42,
+      "cap_seed": 142
+    },
+    "S1_fixed_50pct": {
+      "binding_rate": 0.182942,
+      "policy_coverage": 0.600026,
+      "n_records": 76095,
+      "n_censored": 13921,
+      "n_events": 672,
+      "cap_mean_kw": 957.6,
+      "event_seed": 42,
+      "cap_seed": 142
+    },
+    "S2_fixed_70pct": {
+      "binding_rate": 0.103476,
+      "policy_coverage": 0.600026,
+      "n_records": 76095,
+      "n_censored": 7874,
+      "n_events": 672,
+      "cap_mean_kw": 1117.2,
+      "event_seed": 42,
+      "cap_seed": 142
+    },
+    "S3_fixed_85pct": {
+      "binding_rate": 0.063723,
+      "policy_coverage": 0.600026,
+      "n_records": 76095,
+      "n_censored": 4849,
+      "n_events": 672,
+      "cap_mean_kw": 1236.9,
+      "event_seed": 42,
+      "cap_seed": 142
+    },
+    "S4_random_uniform": {
+      "binding_rate": 0.156922,
+      "policy_coverage": 0.600026,
+      "n_records": 76095,
+      "n_censored": 11941,
+      "n_events": 672,
+      "cap_mean_kw": 1042.4,
+      "event_seed": 42,
+      "cap_seed": 142
+    },
+    "S5_wind_triggered": {
+      "binding_rate": 0.096774,
+      "policy_coverage": 0.096813,
+      "n_records": 76095,
+      "n_censored": 7364,
+      "n_events": 1490,
+      "cap_mean_kw": 1338.6,
+      "event_seed": 42,
+      "cap_seed": 142
+    }
+  },
+  "classification_rules": {
+    "U": "PowerRed=0, active, exact one-minute continuity, PowerRef>=95% rated",
+    "R": "PowerRed>0, active, exact one-minute continuity, PowerRef<95% rated, power tracks PowerRef within 8%+20kW, wind>5m/s",
+    "I": "PowerRed>0 and active but the right-censoring binding condition is not secure",
+    "X": "inactive, discontinuous, startup/shutdown, or unclassifiable"
+  },
+  "shared_event_mask_S1_S4": true,
+  "event_seed": 42,
+  "cap_seed": 142,
+  "semisynthetic_protocol": {
+    "base_records": "all eligible U records in continuous segments of at least 60 min",
+    "shared_event_mask": "S1-S4 use identical policy_active/event_id generated from EVENT_SEED; S4 cap depths come from the independent CAP_SEED stream; verified element-wise before writing the summary",
+    "censoring_semantics": "right-censored when policy_active and A_true >= C_syn",
+    "fixed_and_random_caps": "120-min persistent non-overlapping events; random caps are constant within event",
+    "outcome_blind_release_screen": true,
+    "primary_predictors": "power, wind, cap, and censoring flag; pitch and generator speed are excluded from the primary model"
+  }
+}

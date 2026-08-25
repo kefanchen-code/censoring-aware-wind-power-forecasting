@@ -1,0 +1,1968 @@
+{
+  "scenarios": {
+    "S0_no_curtailment": {
+      "n_records": 76095,
+      "binding_rate": 0.0,
+      "policy_coverage": 0.0,
+      "policy_wind_correlation": 0.0,
+      "free_support_wind_ge_12ms": 1.0,
+      "min_bin_free_support": 1.0,
+      "n_judged_bins_with_zero_support": 0,
+      "bins": [
+        {
+          "bin_left_ms": 0.0,
+          "bin_right_ms": 1.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 1.0,
+          "bin_right_ms": 2.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 2.0,
+          "bin_right_ms": 3.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 3.0,
+          "bin_right_ms": 4.0,
+          "n_records": 31,
+          "n_free": 31,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 4.0,
+          "bin_right_ms": 5.0,
+          "n_records": 1926,
+          "n_free": 1926,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 5.0,
+          "bin_right_ms": 6.0,
+          "n_records": 7672,
+          "n_free": 7672,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 6.0,
+          "bin_right_ms": 7.0,
+          "n_records": 11788,
+          "n_free": 11788,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 7.0,
+          "bin_right_ms": 8.0,
+          "n_records": 13050,
+          "n_free": 13050,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 8.0,
+          "bin_right_ms": 9.0,
+          "n_records": 11794,
+          "n_free": 11794,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 9.0,
+          "bin_right_ms": 10.0,
+          "n_records": 9552,
+          "n_free": 9552,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 10.0,
+          "bin_right_ms": 11.0,
+          "n_records": 7459,
+          "n_free": 7459,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 11.0,
+          "bin_right_ms": 12.0,
+          "n_records": 5447,
+          "n_free": 5447,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 12.0,
+          "bin_right_ms": 13.0,
+          "n_records": 3145,
+          "n_free": 3145,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 13.0,
+          "bin_right_ms": 14.0,
+          "n_records": 1984,
+          "n_free": 1984,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 14.0,
+          "bin_right_ms": 15.0,
+          "n_records": 1186,
+          "n_free": 1186,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 15.0,
+          "bin_right_ms": 16.0,
+          "n_records": 576,
+          "n_free": 576,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 16.0,
+          "bin_right_ms": 17.0,
+          "n_records": 273,
+          "n_free": 273,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 17.0,
+          "bin_right_ms": 18.0,
+          "n_records": 83,
+          "n_free": 83,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 18.0,
+          "bin_right_ms": 19.0,
+          "n_records": 27,
+          "n_free": 27,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 19.0,
+          "bin_right_ms": 20.0,
+          "n_records": 14,
+          "n_free": 14,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 20.0,
+          "bin_right_ms": 21.0,
+          "n_records": 21,
+          "n_free": 21,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 21.0,
+          "bin_right_ms": 22.0,
+          "n_records": 25,
+          "n_free": 25,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 22.0,
+          "bin_right_ms": 23.0,
+          "n_records": 17,
+          "n_free": 17,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 23.0,
+          "bin_right_ms": 24.0,
+          "n_records": 15,
+          "n_free": 15,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 24.0,
+          "bin_right_ms": 25.0,
+          "n_records": 8,
+          "n_free": 8,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 25.0,
+          "bin_right_ms": 26.0,
+          "n_records": 1,
+          "n_free": 1,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 26.0,
+          "bin_right_ms": 27.0,
+          "n_records": 1,
+          "n_free": 1,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 27.0,
+          "bin_right_ms": 28.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 28.0,
+          "bin_right_ms": 29.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 29.0,
+          "bin_right_ms": 30.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 30.0,
+          "bin_right_ms": 31.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 31.0,
+          "bin_right_ms": 32.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 32.0,
+          "bin_right_ms": 33.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 33.0,
+          "bin_right_ms": 34.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 34.0,
+          "bin_right_ms": 35.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 35.0,
+          "bin_right_ms": 36.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 36.0,
+          "bin_right_ms": 37.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 37.0,
+          "bin_right_ms": 38.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        }
+      ],
+      "tier": "tier1_independent_censoring",
+      "tier_rationale": "no censoring present; every record is a free observation"
+    },
+    "S1_fixed_50pct": {
+      "n_records": 76095,
+      "binding_rate": 0.1829423746632499,
+      "policy_coverage": 0.600026282935804,
+      "policy_wind_correlation": 0.024700324823508854,
+      "free_support_wind_ge_12ms": 0.3884219088937093,
+      "min_bin_free_support": 0.3600337268128162,
+      "n_judged_bins_with_zero_support": 0,
+      "bins": [
+        {
+          "bin_left_ms": 0.0,
+          "bin_right_ms": 1.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 1.0,
+          "bin_right_ms": 2.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 2.0,
+          "bin_right_ms": 3.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 3.0,
+          "bin_right_ms": 4.0,
+          "n_records": 31,
+          "n_free": 31,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 4.0,
+          "bin_right_ms": 5.0,
+          "n_records": 1926,
+          "n_free": 1926,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 5.0,
+          "bin_right_ms": 6.0,
+          "n_records": 7672,
+          "n_free": 7672,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 6.0,
+          "bin_right_ms": 7.0,
+          "n_records": 11788,
+          "n_free": 11788,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 7.0,
+          "bin_right_ms": 8.0,
+          "n_records": 13050,
+          "n_free": 13050,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 8.0,
+          "bin_right_ms": 9.0,
+          "n_records": 11794,
+          "n_free": 11765,
+          "free_support": 0.9975411226047143
+        },
+        {
+          "bin_left_ms": 9.0,
+          "bin_right_ms": 10.0,
+          "n_records": 9552,
+          "n_free": 7569,
+          "free_support": 0.7923994974874372
+        },
+        {
+          "bin_left_ms": 10.0,
+          "bin_right_ms": 11.0,
+          "n_records": 7459,
+          "n_free": 3154,
+          "free_support": 0.42284488537337445
+        },
+        {
+          "bin_left_ms": 11.0,
+          "bin_right_ms": 12.0,
+          "n_records": 5447,
+          "n_free": 2354,
+          "free_support": 0.4321644942170002
+        },
+        {
+          "bin_left_ms": 12.0,
+          "bin_right_ms": 13.0,
+          "n_records": 3145,
+          "n_free": 1277,
+          "free_support": 0.40604133545310017
+        },
+        {
+          "bin_left_ms": 13.0,
+          "bin_right_ms": 14.0,
+          "n_records": 1984,
+          "n_free": 745,
+          "free_support": 0.3755040322580645
+        },
+        {
+          "bin_left_ms": 14.0,
+          "bin_right_ms": 15.0,
+          "n_records": 1186,
+          "n_free": 427,
+          "free_support": 0.3600337268128162
+        },
+        {
+          "bin_left_ms": 15.0,
+          "bin_right_ms": 16.0,
+          "n_records": 576,
+          "n_free": 210,
+          "free_support": 0.3645833333333333
+        },
+        {
+          "bin_left_ms": 16.0,
+          "bin_right_ms": 17.0,
+          "n_records": 273,
+          "n_free": 116,
+          "free_support": 0.4249084249084249
+        },
+        {
+          "bin_left_ms": 17.0,
+          "bin_right_ms": 18.0,
+          "n_records": 83,
+          "n_free": 42,
+          "free_support": 0.5060240963855421
+        },
+        {
+          "bin_left_ms": 18.0,
+          "bin_right_ms": 19.0,
+          "n_records": 27,
+          "n_free": 16,
+          "free_support": 0.5925925925925926
+        },
+        {
+          "bin_left_ms": 19.0,
+          "bin_right_ms": 20.0,
+          "n_records": 14,
+          "n_free": 9,
+          "free_support": 0.6428571428571429
+        },
+        {
+          "bin_left_ms": 20.0,
+          "bin_right_ms": 21.0,
+          "n_records": 21,
+          "n_free": 10,
+          "free_support": 0.47619047619047616
+        },
+        {
+          "bin_left_ms": 21.0,
+          "bin_right_ms": 22.0,
+          "n_records": 25,
+          "n_free": 5,
+          "free_support": 0.2
+        },
+        {
+          "bin_left_ms": 22.0,
+          "bin_right_ms": 23.0,
+          "n_records": 17,
+          "n_free": 3,
+          "free_support": 0.17647058823529413
+        },
+        {
+          "bin_left_ms": 23.0,
+          "bin_right_ms": 24.0,
+          "n_records": 15,
+          "n_free": 5,
+          "free_support": 0.3333333333333333
+        },
+        {
+          "bin_left_ms": 24.0,
+          "bin_right_ms": 25.0,
+          "n_records": 8,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 25.0,
+          "bin_right_ms": 26.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 26.0,
+          "bin_right_ms": 27.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 27.0,
+          "bin_right_ms": 28.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 28.0,
+          "bin_right_ms": 29.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 29.0,
+          "bin_right_ms": 30.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 30.0,
+          "bin_right_ms": 31.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 31.0,
+          "bin_right_ms": 32.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 32.0,
+          "bin_right_ms": 33.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 33.0,
+          "bin_right_ms": 34.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 34.0,
+          "bin_right_ms": 35.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 35.0,
+          "bin_right_ms": 36.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 36.0,
+          "bin_right_ms": 37.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 37.0,
+          "bin_right_ms": 38.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        }
+      ],
+      "tier": "tier2_conditionally_ignorable",
+      "tier_rationale": "mask independent of wind and free support stays positive in every judged bin; the known cap threshold makes the right-censoring likelihood identifiable"
+    },
+    "S2_fixed_70pct": {
+      "n_records": 76095,
+      "binding_rate": 0.10347591826006965,
+      "policy_coverage": 0.600026282935804,
+      "policy_wind_correlation": 0.024700324823508854,
+      "free_support_wind_ge_12ms": 0.3884219088937093,
+      "min_bin_free_support": 0.3600337268128162,
+      "n_judged_bins_with_zero_support": 0,
+      "bins": [
+        {
+          "bin_left_ms": 0.0,
+          "bin_right_ms": 1.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 1.0,
+          "bin_right_ms": 2.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 2.0,
+          "bin_right_ms": 3.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 3.0,
+          "bin_right_ms": 4.0,
+          "n_records": 31,
+          "n_free": 31,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 4.0,
+          "bin_right_ms": 5.0,
+          "n_records": 1926,
+          "n_free": 1926,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 5.0,
+          "bin_right_ms": 6.0,
+          "n_records": 7672,
+          "n_free": 7672,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 6.0,
+          "bin_right_ms": 7.0,
+          "n_records": 11788,
+          "n_free": 11788,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 7.0,
+          "bin_right_ms": 8.0,
+          "n_records": 13050,
+          "n_free": 13050,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 8.0,
+          "bin_right_ms": 9.0,
+          "n_records": 11794,
+          "n_free": 11794,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 9.0,
+          "bin_right_ms": 10.0,
+          "n_records": 9552,
+          "n_free": 9547,
+          "free_support": 0.9994765494137353
+        },
+        {
+          "bin_left_ms": 10.0,
+          "bin_right_ms": 11.0,
+          "n_records": 7459,
+          "n_free": 6991,
+          "free_support": 0.9372570049604505
+        },
+        {
+          "bin_left_ms": 11.0,
+          "bin_right_ms": 12.0,
+          "n_records": 5447,
+          "n_free": 2557,
+          "free_support": 0.4694327152561043
+        },
+        {
+          "bin_left_ms": 12.0,
+          "bin_right_ms": 13.0,
+          "n_records": 3145,
+          "n_free": 1277,
+          "free_support": 0.40604133545310017
+        },
+        {
+          "bin_left_ms": 13.0,
+          "bin_right_ms": 14.0,
+          "n_records": 1984,
+          "n_free": 745,
+          "free_support": 0.3755040322580645
+        },
+        {
+          "bin_left_ms": 14.0,
+          "bin_right_ms": 15.0,
+          "n_records": 1186,
+          "n_free": 427,
+          "free_support": 0.3600337268128162
+        },
+        {
+          "bin_left_ms": 15.0,
+          "bin_right_ms": 16.0,
+          "n_records": 576,
+          "n_free": 210,
+          "free_support": 0.3645833333333333
+        },
+        {
+          "bin_left_ms": 16.0,
+          "bin_right_ms": 17.0,
+          "n_records": 273,
+          "n_free": 116,
+          "free_support": 0.4249084249084249
+        },
+        {
+          "bin_left_ms": 17.0,
+          "bin_right_ms": 18.0,
+          "n_records": 83,
+          "n_free": 42,
+          "free_support": 0.5060240963855421
+        },
+        {
+          "bin_left_ms": 18.0,
+          "bin_right_ms": 19.0,
+          "n_records": 27,
+          "n_free": 16,
+          "free_support": 0.5925925925925926
+        },
+        {
+          "bin_left_ms": 19.0,
+          "bin_right_ms": 20.0,
+          "n_records": 14,
+          "n_free": 9,
+          "free_support": 0.6428571428571429
+        },
+        {
+          "bin_left_ms": 20.0,
+          "bin_right_ms": 21.0,
+          "n_records": 21,
+          "n_free": 10,
+          "free_support": 0.47619047619047616
+        },
+        {
+          "bin_left_ms": 21.0,
+          "bin_right_ms": 22.0,
+          "n_records": 25,
+          "n_free": 5,
+          "free_support": 0.2
+        },
+        {
+          "bin_left_ms": 22.0,
+          "bin_right_ms": 23.0,
+          "n_records": 17,
+          "n_free": 3,
+          "free_support": 0.17647058823529413
+        },
+        {
+          "bin_left_ms": 23.0,
+          "bin_right_ms": 24.0,
+          "n_records": 15,
+          "n_free": 5,
+          "free_support": 0.3333333333333333
+        },
+        {
+          "bin_left_ms": 24.0,
+          "bin_right_ms": 25.0,
+          "n_records": 8,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 25.0,
+          "bin_right_ms": 26.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 26.0,
+          "bin_right_ms": 27.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 27.0,
+          "bin_right_ms": 28.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 28.0,
+          "bin_right_ms": 29.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 29.0,
+          "bin_right_ms": 30.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 30.0,
+          "bin_right_ms": 31.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 31.0,
+          "bin_right_ms": 32.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 32.0,
+          "bin_right_ms": 33.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 33.0,
+          "bin_right_ms": 34.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 34.0,
+          "bin_right_ms": 35.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 35.0,
+          "bin_right_ms": 36.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 36.0,
+          "bin_right_ms": 37.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 37.0,
+          "bin_right_ms": 38.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        }
+      ],
+      "tier": "tier2_conditionally_ignorable",
+      "tier_rationale": "mask independent of wind and free support stays positive in every judged bin; the known cap threshold makes the right-censoring likelihood identifiable"
+    },
+    "S3_fixed_85pct": {
+      "n_records": 76095,
+      "binding_rate": 0.06372297785662659,
+      "policy_coverage": 0.600026282935804,
+      "policy_wind_correlation": 0.024700324823508854,
+      "free_support_wind_ge_12ms": 0.4031995661605206,
+      "min_bin_free_support": 0.3600337268128162,
+      "n_judged_bins_with_zero_support": 0,
+      "bins": [
+        {
+          "bin_left_ms": 0.0,
+          "bin_right_ms": 1.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 1.0,
+          "bin_right_ms": 2.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 2.0,
+          "bin_right_ms": 3.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 3.0,
+          "bin_right_ms": 4.0,
+          "n_records": 31,
+          "n_free": 31,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 4.0,
+          "bin_right_ms": 5.0,
+          "n_records": 1926,
+          "n_free": 1926,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 5.0,
+          "bin_right_ms": 6.0,
+          "n_records": 7672,
+          "n_free": 7672,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 6.0,
+          "bin_right_ms": 7.0,
+          "n_records": 11788,
+          "n_free": 11788,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 7.0,
+          "bin_right_ms": 8.0,
+          "n_records": 13050,
+          "n_free": 13050,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 8.0,
+          "bin_right_ms": 9.0,
+          "n_records": 11794,
+          "n_free": 11794,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 9.0,
+          "bin_right_ms": 10.0,
+          "n_records": 9552,
+          "n_free": 9552,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 10.0,
+          "bin_right_ms": 11.0,
+          "n_records": 7459,
+          "n_free": 7457,
+          "free_support": 0.999731867542566
+        },
+        {
+          "bin_left_ms": 11.0,
+          "bin_right_ms": 12.0,
+          "n_records": 5447,
+          "n_free": 5002,
+          "free_support": 0.9183036533871856
+        },
+        {
+          "bin_left_ms": 12.0,
+          "bin_right_ms": 13.0,
+          "n_records": 3145,
+          "n_free": 1385,
+          "free_support": 0.44038155802861684
+        },
+        {
+          "bin_left_ms": 13.0,
+          "bin_right_ms": 14.0,
+          "n_records": 1984,
+          "n_free": 746,
+          "free_support": 0.37600806451612906
+        },
+        {
+          "bin_left_ms": 14.0,
+          "bin_right_ms": 15.0,
+          "n_records": 1186,
+          "n_free": 427,
+          "free_support": 0.3600337268128162
+        },
+        {
+          "bin_left_ms": 15.0,
+          "bin_right_ms": 16.0,
+          "n_records": 576,
+          "n_free": 210,
+          "free_support": 0.3645833333333333
+        },
+        {
+          "bin_left_ms": 16.0,
+          "bin_right_ms": 17.0,
+          "n_records": 273,
+          "n_free": 116,
+          "free_support": 0.4249084249084249
+        },
+        {
+          "bin_left_ms": 17.0,
+          "bin_right_ms": 18.0,
+          "n_records": 83,
+          "n_free": 42,
+          "free_support": 0.5060240963855421
+        },
+        {
+          "bin_left_ms": 18.0,
+          "bin_right_ms": 19.0,
+          "n_records": 27,
+          "n_free": 16,
+          "free_support": 0.5925925925925926
+        },
+        {
+          "bin_left_ms": 19.0,
+          "bin_right_ms": 20.0,
+          "n_records": 14,
+          "n_free": 9,
+          "free_support": 0.6428571428571429
+        },
+        {
+          "bin_left_ms": 20.0,
+          "bin_right_ms": 21.0,
+          "n_records": 21,
+          "n_free": 10,
+          "free_support": 0.47619047619047616
+        },
+        {
+          "bin_left_ms": 21.0,
+          "bin_right_ms": 22.0,
+          "n_records": 25,
+          "n_free": 5,
+          "free_support": 0.2
+        },
+        {
+          "bin_left_ms": 22.0,
+          "bin_right_ms": 23.0,
+          "n_records": 17,
+          "n_free": 3,
+          "free_support": 0.17647058823529413
+        },
+        {
+          "bin_left_ms": 23.0,
+          "bin_right_ms": 24.0,
+          "n_records": 15,
+          "n_free": 5,
+          "free_support": 0.3333333333333333
+        },
+        {
+          "bin_left_ms": 24.0,
+          "bin_right_ms": 25.0,
+          "n_records": 8,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 25.0,
+          "bin_right_ms": 26.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 26.0,
+          "bin_right_ms": 27.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 27.0,
+          "bin_right_ms": 28.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 28.0,
+          "bin_right_ms": 29.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 29.0,
+          "bin_right_ms": 30.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 30.0,
+          "bin_right_ms": 31.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 31.0,
+          "bin_right_ms": 32.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 32.0,
+          "bin_right_ms": 33.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 33.0,
+          "bin_right_ms": 34.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 34.0,
+          "bin_right_ms": 35.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 35.0,
+          "bin_right_ms": 36.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 36.0,
+          "bin_right_ms": 37.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 37.0,
+          "bin_right_ms": 38.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        }
+      ],
+      "tier": "tier2_conditionally_ignorable",
+      "tier_rationale": "mask independent of wind and free support stays positive in every judged bin; the known cap threshold makes the right-censoring likelihood identifiable"
+    },
+    "S4_random_uniform": {
+      "n_records": 76095,
+      "binding_rate": 0.15692226821735988,
+      "policy_coverage": 0.600026282935804,
+      "policy_wind_correlation": 0.024700324823508854,
+      "free_support_wind_ge_12ms": 0.391675704989154,
+      "min_bin_free_support": 0.3600337268128162,
+      "n_judged_bins_with_zero_support": 0,
+      "bins": [
+        {
+          "bin_left_ms": 0.0,
+          "bin_right_ms": 1.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 1.0,
+          "bin_right_ms": 2.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 2.0,
+          "bin_right_ms": 3.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 3.0,
+          "bin_right_ms": 4.0,
+          "n_records": 31,
+          "n_free": 31,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 4.0,
+          "bin_right_ms": 5.0,
+          "n_records": 1926,
+          "n_free": 1926,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 5.0,
+          "bin_right_ms": 6.0,
+          "n_records": 7672,
+          "n_free": 7672,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 6.0,
+          "bin_right_ms": 7.0,
+          "n_records": 11788,
+          "n_free": 11788,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 7.0,
+          "bin_right_ms": 8.0,
+          "n_records": 13050,
+          "n_free": 13009,
+          "free_support": 0.9968582375478927
+        },
+        {
+          "bin_left_ms": 8.0,
+          "bin_right_ms": 9.0,
+          "n_records": 11794,
+          "n_free": 11082,
+          "free_support": 0.9396303205019502
+        },
+        {
+          "bin_left_ms": 9.0,
+          "bin_right_ms": 10.0,
+          "n_records": 9552,
+          "n_free": 7689,
+          "free_support": 0.804962311557789
+        },
+        {
+          "bin_left_ms": 10.0,
+          "bin_right_ms": 11.0,
+          "n_records": 7459,
+          "n_free": 5124,
+          "free_support": 0.6869553559458372
+        },
+        {
+          "bin_left_ms": 11.0,
+          "bin_right_ms": 12.0,
+          "n_records": 5447,
+          "n_free": 2944,
+          "free_support": 0.540480998714889
+        },
+        {
+          "bin_left_ms": 12.0,
+          "bin_right_ms": 13.0,
+          "n_records": 3145,
+          "n_free": 1301,
+          "free_support": 0.4136724960254372
+        },
+        {
+          "bin_left_ms": 13.0,
+          "bin_right_ms": 14.0,
+          "n_records": 1984,
+          "n_free": 745,
+          "free_support": 0.3755040322580645
+        },
+        {
+          "bin_left_ms": 14.0,
+          "bin_right_ms": 15.0,
+          "n_records": 1186,
+          "n_free": 427,
+          "free_support": 0.3600337268128162
+        },
+        {
+          "bin_left_ms": 15.0,
+          "bin_right_ms": 16.0,
+          "n_records": 576,
+          "n_free": 210,
+          "free_support": 0.3645833333333333
+        },
+        {
+          "bin_left_ms": 16.0,
+          "bin_right_ms": 17.0,
+          "n_records": 273,
+          "n_free": 116,
+          "free_support": 0.4249084249084249
+        },
+        {
+          "bin_left_ms": 17.0,
+          "bin_right_ms": 18.0,
+          "n_records": 83,
+          "n_free": 42,
+          "free_support": 0.5060240963855421
+        },
+        {
+          "bin_left_ms": 18.0,
+          "bin_right_ms": 19.0,
+          "n_records": 27,
+          "n_free": 16,
+          "free_support": 0.5925925925925926
+        },
+        {
+          "bin_left_ms": 19.0,
+          "bin_right_ms": 20.0,
+          "n_records": 14,
+          "n_free": 9,
+          "free_support": 0.6428571428571429
+        },
+        {
+          "bin_left_ms": 20.0,
+          "bin_right_ms": 21.0,
+          "n_records": 21,
+          "n_free": 10,
+          "free_support": 0.47619047619047616
+        },
+        {
+          "bin_left_ms": 21.0,
+          "bin_right_ms": 22.0,
+          "n_records": 25,
+          "n_free": 5,
+          "free_support": 0.2
+        },
+        {
+          "bin_left_ms": 22.0,
+          "bin_right_ms": 23.0,
+          "n_records": 17,
+          "n_free": 3,
+          "free_support": 0.17647058823529413
+        },
+        {
+          "bin_left_ms": 23.0,
+          "bin_right_ms": 24.0,
+          "n_records": 15,
+          "n_free": 5,
+          "free_support": 0.3333333333333333
+        },
+        {
+          "bin_left_ms": 24.0,
+          "bin_right_ms": 25.0,
+          "n_records": 8,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 25.0,
+          "bin_right_ms": 26.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 26.0,
+          "bin_right_ms": 27.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 27.0,
+          "bin_right_ms": 28.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 28.0,
+          "bin_right_ms": 29.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 29.0,
+          "bin_right_ms": 30.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 30.0,
+          "bin_right_ms": 31.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 31.0,
+          "bin_right_ms": 32.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 32.0,
+          "bin_right_ms": 33.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 33.0,
+          "bin_right_ms": 34.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 34.0,
+          "bin_right_ms": 35.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 35.0,
+          "bin_right_ms": 36.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 36.0,
+          "bin_right_ms": 37.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 37.0,
+          "bin_right_ms": 38.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        }
+      ],
+      "tier": "tier2_conditionally_ignorable",
+      "tier_rationale": "mask independent of wind and free support stays positive in every judged bin; the known cap threshold makes the right-censoring likelihood identifiable"
+    },
+    "S5_wind_triggered": {
+      "n_records": 76095,
+      "binding_rate": 0.09677376963006767,
+      "policy_coverage": 0.09681319403377357,
+      "policy_wind_correlation": 0.6650004264223146,
+      "free_support_wind_ge_12ms": 0.0016268980477223427,
+      "min_bin_free_support": 0.0,
+      "n_judged_bins_with_zero_support": 3,
+      "bins": [
+        {
+          "bin_left_ms": 0.0,
+          "bin_right_ms": 1.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 1.0,
+          "bin_right_ms": 2.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 2.0,
+          "bin_right_ms": 3.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 3.0,
+          "bin_right_ms": 4.0,
+          "n_records": 31,
+          "n_free": 31,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 4.0,
+          "bin_right_ms": 5.0,
+          "n_records": 1926,
+          "n_free": 1926,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 5.0,
+          "bin_right_ms": 6.0,
+          "n_records": 7672,
+          "n_free": 7672,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 6.0,
+          "bin_right_ms": 7.0,
+          "n_records": 11788,
+          "n_free": 11788,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 7.0,
+          "bin_right_ms": 8.0,
+          "n_records": 13050,
+          "n_free": 13050,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 8.0,
+          "bin_right_ms": 9.0,
+          "n_records": 11794,
+          "n_free": 11794,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 9.0,
+          "bin_right_ms": 10.0,
+          "n_records": 9552,
+          "n_free": 9552,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 10.0,
+          "bin_right_ms": 11.0,
+          "n_records": 7459,
+          "n_free": 7459,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 11.0,
+          "bin_right_ms": 12.0,
+          "n_records": 5447,
+          "n_free": 5447,
+          "free_support": 1.0
+        },
+        {
+          "bin_left_ms": 12.0,
+          "bin_right_ms": 13.0,
+          "n_records": 3145,
+          "n_free": 10,
+          "free_support": 0.003179650238473768
+        },
+        {
+          "bin_left_ms": 13.0,
+          "bin_right_ms": 14.0,
+          "n_records": 1984,
+          "n_free": 1,
+          "free_support": 0.0005040322580645161
+        },
+        {
+          "bin_left_ms": 14.0,
+          "bin_right_ms": 15.0,
+          "n_records": 1186,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 15.0,
+          "bin_right_ms": 16.0,
+          "n_records": 576,
+          "n_free": 1,
+          "free_support": 0.001736111111111111
+        },
+        {
+          "bin_left_ms": 16.0,
+          "bin_right_ms": 17.0,
+          "n_records": 273,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 17.0,
+          "bin_right_ms": 18.0,
+          "n_records": 83,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 18.0,
+          "bin_right_ms": 19.0,
+          "n_records": 27,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 19.0,
+          "bin_right_ms": 20.0,
+          "n_records": 14,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 20.0,
+          "bin_right_ms": 21.0,
+          "n_records": 21,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 21.0,
+          "bin_right_ms": 22.0,
+          "n_records": 25,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 22.0,
+          "bin_right_ms": 23.0,
+          "n_records": 17,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 23.0,
+          "bin_right_ms": 24.0,
+          "n_records": 15,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 24.0,
+          "bin_right_ms": 25.0,
+          "n_records": 8,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 25.0,
+          "bin_right_ms": 26.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 26.0,
+          "bin_right_ms": 27.0,
+          "n_records": 1,
+          "n_free": 0,
+          "free_support": 0.0
+        },
+        {
+          "bin_left_ms": 27.0,
+          "bin_right_ms": 28.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 28.0,
+          "bin_right_ms": 29.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 29.0,
+          "bin_right_ms": 30.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 30.0,
+          "bin_right_ms": 31.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 31.0,
+          "bin_right_ms": 32.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 32.0,
+          "bin_right_ms": 33.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 33.0,
+          "bin_right_ms": 34.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 34.0,
+          "bin_right_ms": 35.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 35.0,
+          "bin_right_ms": 36.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 36.0,
+          "bin_right_ms": 37.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        },
+        {
+          "bin_left_ms": 37.0,
+          "bin_right_ms": 38.0,
+          "n_records": 0,
+          "n_free": 0,
+          "free_support": NaN
+        }
+      ],
+      "tier": "tier3_positivity_violation",
+      "tier_rationale": "mask coupled to wind speed or judged bins lose free support entirely; the censored tail cannot be identified from free observations in the affected strata"
+    }
+  },
+  "wind_bin_width_ms": 1.0,
+  "real_alta2": {
+    "dataset": "Altahullion T11 real record (1-min, audit U/R classes)",
+    "n_free": 107835,
+    "n_curtailed": 63403,
+    "overall_free_support": 0.6297375582522571,
+    "curtailment_share_at_wind_ge_12ms": 0.6073687364951186,
+    "free_share_at_wind_ge_12ms": 0.07088607594936709,
+    "mean_wind_curtailed_ms": 12.810347407325708,
+    "mean_wind_free_ms": 7.77675649526285,
+    "min_bin_free_support": 0.025602409638554216,
+    "bins": [
+      {
+        "bin_left_ms": 0.0,
+        "bin_right_ms": 1.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 1.0,
+        "bin_right_ms": 2.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 2.0,
+        "bin_right_ms": 3.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 3.0,
+        "bin_right_ms": 4.0,
+        "n_records": 387,
+        "n_free": 387,
+        "free_support": 1.0
+      },
+      {
+        "bin_left_ms": 4.0,
+        "bin_right_ms": 5.0,
+        "n_records": 12184,
+        "n_free": 12184,
+        "free_support": 1.0
+      },
+      {
+        "bin_left_ms": 5.0,
+        "bin_right_ms": 6.0,
+        "n_records": 20230,
+        "n_free": 20050,
+        "free_support": 0.9911023232822541
+      },
+      {
+        "bin_left_ms": 6.0,
+        "bin_right_ms": 7.0,
+        "n_records": 17736,
+        "n_free": 17251,
+        "free_support": 0.9726544880469102
+      },
+      {
+        "bin_left_ms": 7.0,
+        "bin_right_ms": 8.0,
+        "n_records": 15707,
+        "n_free": 14658,
+        "free_support": 0.933214490354619
+      },
+      {
+        "bin_left_ms": 8.0,
+        "bin_right_ms": 9.0,
+        "n_records": 14505,
+        "n_free": 12543,
+        "free_support": 0.864736297828335
+      },
+      {
+        "bin_left_ms": 9.0,
+        "bin_right_ms": 10.0,
+        "n_records": 13447,
+        "n_free": 9847,
+        "free_support": 0.7322822934483528
+      },
+      {
+        "bin_left_ms": 10.0,
+        "bin_right_ms": 11.0,
+        "n_records": 14559,
+        "n_free": 7679,
+        "free_support": 0.5274400714334776
+      },
+      {
+        "bin_left_ms": 11.0,
+        "bin_right_ms": 12.0,
+        "n_records": 16330,
+        "n_free": 5592,
+        "free_support": 0.3424372320881813
+      },
+      {
+        "bin_left_ms": 12.0,
+        "bin_right_ms": 13.0,
+        "n_records": 14724,
+        "n_free": 3250,
+        "free_support": 0.22072806302635153
+      },
+      {
+        "bin_left_ms": 13.0,
+        "bin_right_ms": 14.0,
+        "n_records": 11327,
+        "n_free": 2053,
+        "free_support": 0.18124834466319414
+      },
+      {
+        "bin_left_ms": 14.0,
+        "bin_right_ms": 15.0,
+        "n_records": 7734,
+        "n_free": 1225,
+        "free_support": 0.15839151797258857
+      },
+      {
+        "bin_left_ms": 15.0,
+        "bin_right_ms": 16.0,
+        "n_records": 4987,
+        "n_free": 590,
+        "free_support": 0.11830759975937437
+      },
+      {
+        "bin_left_ms": 16.0,
+        "bin_right_ms": 17.0,
+        "n_records": 3041,
+        "n_free": 275,
+        "free_support": 0.09043077934889839
+      },
+      {
+        "bin_left_ms": 17.0,
+        "bin_right_ms": 18.0,
+        "n_records": 1694,
+        "n_free": 84,
+        "free_support": 0.049586776859504134
+      },
+      {
+        "bin_left_ms": 18.0,
+        "bin_right_ms": 19.0,
+        "n_records": 1095,
+        "n_free": 29,
+        "free_support": 0.026484018264840183
+      },
+      {
+        "bin_left_ms": 19.0,
+        "bin_right_ms": 20.0,
+        "n_records": 664,
+        "n_free": 17,
+        "free_support": 0.025602409638554216
+      },
+      {
+        "bin_left_ms": 20.0,
+        "bin_right_ms": 21.0,
+        "n_records": 408,
+        "n_free": 25,
+        "free_support": 0.061274509803921566
+      },
+      {
+        "bin_left_ms": 21.0,
+        "bin_right_ms": 22.0,
+        "n_records": 243,
+        "n_free": 36,
+        "free_support": 0.14814814814814814
+      },
+      {
+        "bin_left_ms": 22.0,
+        "bin_right_ms": 23.0,
+        "n_records": 121,
+        "n_free": 24,
+        "free_support": 0.19834710743801653
+      },
+      {
+        "bin_left_ms": 23.0,
+        "bin_right_ms": 24.0,
+        "n_records": 57,
+        "n_free": 21,
+        "free_support": 0.3684210526315789
+      },
+      {
+        "bin_left_ms": 24.0,
+        "bin_right_ms": 25.0,
+        "n_records": 29,
+        "n_free": 11,
+        "free_support": 0.3793103448275862
+      },
+      {
+        "bin_left_ms": 25.0,
+        "bin_right_ms": 26.0,
+        "n_records": 16,
+        "n_free": 2,
+        "free_support": 0.125
+      },
+      {
+        "bin_left_ms": 26.0,
+        "bin_right_ms": 27.0,
+        "n_records": 9,
+        "n_free": 1,
+        "free_support": 0.1111111111111111
+      },
+      {
+        "bin_left_ms": 27.0,
+        "bin_right_ms": 28.0,
+        "n_records": 4,
+        "n_free": 1,
+        "free_support": 0.25
+      },
+      {
+        "bin_left_ms": 28.0,
+        "bin_right_ms": 29.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 29.0,
+        "bin_right_ms": 30.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 30.0,
+        "bin_right_ms": 31.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 31.0,
+        "bin_right_ms": 32.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 32.0,
+        "bin_right_ms": 33.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 33.0,
+        "bin_right_ms": 34.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 34.0,
+        "bin_right_ms": 35.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 35.0,
+        "bin_right_ms": 36.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 36.0,
+        "bin_right_ms": 37.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      },
+      {
+        "bin_left_ms": 37.0,
+        "bin_right_ms": 38.0,
+        "n_records": 0,
+        "n_free": 0,
+        "free_support": NaN
+      }
+    ]
+  },
+  "hot_mechanism_anchor": {
+    "dataset": "Hill of Towie 2026 (10-min, 21 turbines, DID audit)",
+    "external_command_share_of_treated": 0.8733045226990716,
+    "synchronous_curtailment_share": 0.019963031423290204,
+    "provenance": "results/hot_truth_channel_bias/hot_truth_bias.json"
+  },
+  "interpretation": {
+    "s5_role": "S5 is retained as the mechanism-form scenario: it demonstrates what wind-coupled informative censoring does to estimators, not the dominant real-farm curtailment form.",
+    "real_farm_evidence": "HOT curtailment is dominated by external dispatch commands (87.3% of treated frames) with only 2.0% synchronous; the real regime is informative censoring by dispatch, which the likelihood-based models target."
+  }
+}

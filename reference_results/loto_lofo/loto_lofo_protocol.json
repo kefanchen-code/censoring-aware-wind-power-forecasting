@@ -1,0 +1,244 @@
+{
+  "fold_design": [
+    {
+      "fold": "loto_alta2",
+      "held_out": "ALTA2_1301253",
+      "train_keys": [
+        "ALTA2_1301254",
+        "ALTA2_1301255",
+        "ALTA2_1301256",
+        "ALTA2_1301257"
+      ],
+      "train_rated": 1330.0
+    },
+    {
+      "fold": "loto_alta2",
+      "held_out": "ALTA2_1301254",
+      "train_keys": [
+        "ALTA2_1301253",
+        "ALTA2_1301255",
+        "ALTA2_1301256",
+        "ALTA2_1301257"
+      ],
+      "train_rated": 1330.0
+    },
+    {
+      "fold": "loto_alta2",
+      "held_out": "ALTA2_1301255",
+      "train_keys": [
+        "ALTA2_1301253",
+        "ALTA2_1301254",
+        "ALTA2_1301256",
+        "ALTA2_1301257"
+      ],
+      "train_rated": 1330.0
+    },
+    {
+      "fold": "loto_alta2",
+      "held_out": "ALTA2_1301256",
+      "train_keys": [
+        "ALTA2_1301253",
+        "ALTA2_1301254",
+        "ALTA2_1301255",
+        "ALTA2_1301257"
+      ],
+      "train_rated": 1330.0
+    },
+    {
+      "fold": "loto_alta2",
+      "held_out": "ALTA2_1301257",
+      "train_keys": [
+        "ALTA2_1301253",
+        "ALTA2_1301254",
+        "ALTA2_1301255",
+        "ALTA2_1301256"
+      ],
+      "train_rated": 1330.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T01",
+      "train_keys": [
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T13",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T02",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T13",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T03",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T13",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T04",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T13",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T05",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T07",
+        "HOT_T13",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T07",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T13",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T13",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "loto_hot",
+      "held_out": "HOT_T14",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T13"
+      ],
+      "train_rated": 2300.0
+    },
+    {
+      "fold": "lofo_alta2_to_hot",
+      "held_out": "HOT_all",
+      "train_keys": [
+        "ALTA2_1301253",
+        "ALTA2_1301254",
+        "ALTA2_1301255",
+        "ALTA2_1301256",
+        "ALTA2_1301257"
+      ],
+      "train_rated": 1330.0,
+      "test_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T13",
+        "HOT_T14"
+      ]
+    },
+    {
+      "fold": "lofo_hot_to_alta2",
+      "held_out": "ALTA2_all",
+      "train_keys": [
+        "HOT_T01",
+        "HOT_T02",
+        "HOT_T03",
+        "HOT_T04",
+        "HOT_T05",
+        "HOT_T07",
+        "HOT_T13",
+        "HOT_T14"
+      ],
+      "train_rated": 2300.0,
+      "test_keys": [
+        "ALTA2_1301253",
+        "ALTA2_1301254",
+        "ALTA2_1301255",
+        "ALTA2_1301256",
+        "ALTA2_1301257"
+      ]
+    }
+  ],
+  "step_min": 10,
+  "window_steps": 6,
+  "horizon_steps": 1,
+  "scenarios": [
+    "S1_fixed_50pct",
+    "S4_random_uniform"
+  ],
+  "models": [
+    "B4",
+    "B6",
+    "CLQR"
+  ],
+  "seeds": [
+    42,
+    123
+  ],
+  "quantiles": [
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    0.8,
+    0.9,
+    0.95
+  ],
+  "note": "HOT 1-min frames stride-sampled x10 onto the common 10-min grid",
+  "design_hash": "7194fd8069278e32f5e5fe49fa9735fe451ca90ec25866171b7ec9277c235344"
+}

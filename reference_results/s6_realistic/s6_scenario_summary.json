@@ -1,0 +1,28 @@
+{
+  "scenario": "S6_realistic",
+  "scenario_seed": 20260804,
+  "cap_seed": 20260904,
+  "design": {
+    "base": "342 eligible U segments (same base as S1-S5, truth known)",
+    "duration_distribution": "empirical ALTA2 T11 (62_real_command_stats)",
+    "depth_distribution": "empirical ALTA2 T11, clipped to [0, 0.98]",
+    "target_curtailment_rate": 0.4268,
+    "rate_source": "ALTA2 active curtailment / (free + curtailed)",
+    "cap_floor_kw": 26.6,
+    "hot_synchrony_note": "HOT farm-level synchrony (57.8% of curtailment minutes with >=half turbines curtailed) cannot be represented in a single-turbine semisynthetic; cited as farm-level evidence only."
+  },
+  "realized": {
+    "n_rows": 76095,
+    "n_events": 4375,
+    "policy_minutes": 35847,
+    "policy_share": 0.4711,
+    "n_censored": 31915,
+    "censored_share_of_policy": 0.8903,
+    "cap_mean_kw": 151.9,
+    "duration_quantiles": {
+      "median": 6.0,
+      "p75": 28.0,
+      "p95": 376.60000000000105
+    }
+  }
+}

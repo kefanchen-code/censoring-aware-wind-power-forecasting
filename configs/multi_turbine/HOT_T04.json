@@ -1,0 +1,129 @@
+{
+  "schema_version": 2,
+  "output_dir": "results/multi_turbine_validation/runs/HOT_T04",
+  "model_modules": [
+    "censored_wind_power.benchmark.tobit",
+    "censored_wind_power.benchmark.powercurve",
+    "censored_wind_power.benchmark.censored_qr"
+  ],
+  "scenarios": [
+    "S0_no_curtailment",
+    "S1_fixed_50pct",
+    "S4_random_uniform",
+    "S5_wind_triggered"
+  ],
+  "models": [
+    "B0_persistence",
+    "B2_recon",
+    "B4",
+    "B6",
+    "CLQR",
+    "ORACLE"
+  ],
+  "model_settings": {
+    "B2_recon": {
+      "bin_width_ms": 0.5,
+      "min_bin_count": 30
+    }
+  },
+  "seeds": [
+    42
+  ],
+  "data": {
+    "directory": "results/multi_turbine_validation/data/HOT_T04",
+    "filename_pattern": "synthetic_{scenario}.parquet",
+    "rated_power_kw": 2300.0,
+    "sampling_interval_minutes": 1
+  },
+  "split": {
+    "strategy": "chronological_whole_segment",
+    "train_fraction": 0.7,
+    "validation_fraction": 0.15
+  },
+  "forecast": {
+    "window_minutes": 60,
+    "horizon_minutes": 15,
+    "support_min_pu": 0.0,
+    "support_max_pu": 1.06,
+    "n_bins": 106
+  },
+  "training": {
+    "min_epochs": 8,
+    "max_epochs": 40,
+    "patience": 6,
+    "min_delta": 0.0001,
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "fail_on_nonconvergence": true
+  },
+  "model": {
+    "hidden_channels": 32,
+    "layers": 4,
+    "kernel_size": 3,
+    "dropout": 0.1
+  },
+  "evaluation": {
+    "primary_score": "WIS",
+    "quantiles": [
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.7,
+      0.8,
+      0.9,
+      0.95
+    ],
+    "interval_alphas": [
+      0.1,
+      0.2,
+      0.4,
+      0.6
+    ]
+  },
+  "inference": {
+    "seed": 20260726,
+    "cluster_bootstrap_draws": 5000,
+    "sign_flip_draws": 100000,
+    "exhaustive_max_clusters": 16
+  },
+  "comparisons": [
+    {
+      "family": "MT_censored_likelihood_primary",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6"
+    },
+    {
+      "family": "MT_censored_likelihood_vs_free_only",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6"
+    },
+    {
+      "family": "MT_secondary_censored_quantile_CLQR",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "CLQR"
+    },
+    {
+      "family": "MT_secondary_censored_quantile_CLQR",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "CLQR"
+    },
+    {
+      "family": "oracle_gap_report_not_confirmatory",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "ORACLE",
+      "equivalence_margin": 0.005
+    }
+  ],
+  "execution": {
+    "device": "auto"
+  }
+}

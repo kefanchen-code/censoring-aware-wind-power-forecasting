@@ -1,0 +1,9 @@
+{
+  "protocol_document": "writing/22_release_event_protocol.md",
+  "protocol_version": "v1.2",
+  "protocol_sha256": "8aa3bca2cce62a559cb55d803d18beb41ea26535473976e654c3cce40772d1bf",
+  "event_list": "results/altahullion_audit/qualified_release_events.csv",
+  "event_list_sha256": "e351c076d155dea95d94047b2c5a0bc365c7a680b9a859565695df36387d63fe",
+  "event_count_frozen": 122,
+  "frozen_utc": "2026-08-04T13:30:41.922463+00:00"
+}

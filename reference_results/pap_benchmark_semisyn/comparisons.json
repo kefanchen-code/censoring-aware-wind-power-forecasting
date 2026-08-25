@@ -1,0 +1,1707 @@
+{
+  "protocol_id": "b79a981821302922388678de32aa3a02642c48dcbcaded8d85e4fea2af3d83c4",
+  "experiment_id": "c59c76f8a2117274492207c11932986cd50356cc852cc54e4494b936ef1c7c7e",
+  "primary_cross_model_score": "WIS",
+  "comparisons": [
+    {
+      "family": "RQ1_control_inputs_B4_vs_B4plain",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B4_plain",
+      "challenger": "B4",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.004225467146978819,
+      "cluster_bootstrap_ci_95": [
+        -0.0063371177900949285,
+        -0.0013980879270388098
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.012919870801291988,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.0047143345880475305,
+        -0.0033157419017066257
+      ],
+      "holm_adjusted_p_within_family": 0.05167948320516795,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_control_inputs_B4_vs_B4plain",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B4_plain",
+      "challenger": "B4",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.004598126572483016,
+      "cluster_bootstrap_ci_95": [
+        0.00105773449634756,
+        0.007078507074687147
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.03974960250397496,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0036487149679614397,
+        0.005007019844362999
+      ],
+      "holm_adjusted_p_within_family": 0.11924880751192488,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_control_inputs_B4_vs_B4plain",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B4_plain",
+      "challenger": "B4",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.0023136033467082823,
+      "cluster_bootstrap_ci_95": [
+        -0.0035810463544912077,
+        -0.0009755118782595923
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00933990660093399,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.002656508869823243,
+        -0.001766024220396309
+      ],
+      "holm_adjusted_p_within_family": 0.04669953300466995,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_control_inputs_B4_vs_B4plain",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B4_plain",
+      "challenger": "B4",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.0006771527251577488,
+      "cluster_bootstrap_ci_95": [
+        -0.003646418158298878,
+        0.002077679944526641
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.6540934590654094,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.0016258344621133036,
+        7.15527591484735e-05
+      ],
+      "holm_adjusted_p_within_family": 0.6540934590654094,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_control_inputs_B4_vs_B4plain",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B4_plain",
+      "challenger": "B4",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.0010550136106990608,
+      "cluster_bootstrap_ci_95": [
+        -0.001743434007800421,
+        -0.00016816923878864033
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.05532944670553294,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.0012499994343071928,
+        -0.0007458408432857607
+      ],
+      "holm_adjusted_p_within_family": 0.11924880751192488,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.09600551913315823,
+      "cluster_bootstrap_ci_95": [
+        0.04958067738866134,
+        0.12951785730970716
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00011999880001199988,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.08252387269282514,
+        0.10489575574180235
+      ],
+      "holm_adjusted_p_within_family": 0.0015599844001559986,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.03975921875309211,
+      "cluster_bootstrap_ci_95": [
+        0.01894198131152898,
+        0.055745143053204146
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 6.999930000699993e-05,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.033311962620681645,
+        0.043718152851662674
+      ],
+      "holm_adjusted_p_within_family": 0.000979990200097999,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.015438575805872141,
+      "cluster_bootstrap_ci_95": [
+        0.0064255842764848,
+        0.02232792027405722
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.003029969700302997,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.012682087972284366,
+        0.017057941187042826
+      ],
+      "holm_adjusted_p_within_family": 0.008319916800831991,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.043611461793145165,
+      "cluster_bootstrap_ci_95": [
+        0.0199400277432648,
+        0.06483435321141079
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00026999730002699973,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.03372126929631112,
+        0.047365950685879066
+      ],
+      "holm_adjusted_p_within_family": 0.0024299757002429977,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.04303112599263379,
+      "cluster_bootstrap_ci_95": [
+        0.01683848979265058,
+        0.06255443570665582
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00014999850001499985,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.03422780979076734,
+        0.04735360131081954
+      ],
+      "holm_adjusted_p_within_family": 0.0016499835001649982,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "BT",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.09283108925944819,
+      "cluster_bootstrap_ci_95": [
+        0.04935554870838072,
+        0.12451190711684904
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00012999870001299986,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.07973135276380276,
+        0.10132891504319826
+      ],
+      "holm_adjusted_p_within_family": 0.0015599844001559986,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "BT",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.035885210351995385,
+      "cluster_bootstrap_ci_95": [
+        0.018084114607550477,
+        0.0496894879621689
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 3.999960000399996e-05,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.030001451440425073,
+        0.03937137116888308
+      ],
+      "holm_adjusted_p_within_family": 0.0005999940000599995,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "BT",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.013333622851931185,
+      "cluster_bootstrap_ci_95": [
+        0.005895887885723877,
+        0.018641744756092534
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0016499835001649984,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.010954180686024165,
+        0.014504682276672561
+      ],
+      "holm_adjusted_p_within_family": 0.008249917500824992,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "BT",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.040361272680860955,
+      "cluster_bootstrap_ci_95": [
+        0.019978624383876986,
+        0.05906572598273932
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00015999840001599985,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.031209489285785576,
+        0.04356676564534239
+      ],
+      "holm_adjusted_p_within_family": 0.0016499835001649982,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "BT",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.055708316867368365,
+      "cluster_bootstrap_ci_95": [
+        0.020128064663440918,
+        0.0823666674455674
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0004599954000459995,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.044095646174909,
+        0.06147822128649316
+      ],
+      "holm_adjusted_p_within_family": 0.003679963200367996,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B1",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.013736635263484724,
+      "cluster_bootstrap_ci_95": [
+        0.009475252385980473,
+        0.017399913597098297
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0004999950000499995,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.012796277903682034,
+        0.014312578048652394
+      ],
+      "holm_adjusted_p_within_family": 0.003679963200367996,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B1",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.01381536517988735,
+      "cluster_bootstrap_ci_95": [
+        0.007524083494966443,
+        0.018705943636698582
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0007099929000709993,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.012059254527639523,
+        0.014860612758421808
+      ],
+      "holm_adjusted_p_within_family": 0.004259957400425996,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B1",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.009259718190437466,
+      "cluster_bootstrap_ci_95": [
+        0.003659384504731151,
+        0.013449518785154324
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0041599584004159956,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.007439244859497714,
+        0.010172993276660706
+      ],
+      "holm_adjusted_p_within_family": 0.008319916800831991,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B1",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.009022977391150502,
+      "cluster_bootstrap_ci_95": [
+        0.005575531640855202,
+        0.011878065583511847
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0020799792002079978,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.008240299589963737,
+        0.009455036280108272
+      ],
+      "holm_adjusted_p_within_family": 0.008319916800831991,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_censored_likelihood_primary",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B1",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.004538761228555767,
+      "cluster_bootstrap_ci_95": [
+        0.0015933865627774256,
+        0.006749549984416888
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0023999760002399975,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0034668760113692305,
+        0.004910431447768026
+      ],
+      "holm_adjusted_p_within_family": 0.008319916800831991,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BT",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "BT",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0031744298737100404,
+      "cluster_bootstrap_ci_95": [
+        0.0004483999995275703,
+        0.0054430896762914125
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.06111938880611194,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.002053647274452854,
+        0.003566840698604068
+      ],
+      "holm_adjusted_p_within_family": 0.24447755522444775,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BT",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "BT",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0038740084010967265,
+      "cluster_bootstrap_ci_95": [
+        4.7179801477474615e-05,
+        0.006975713474988735
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.14109858901410985,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0023249123243083807,
+        0.004346781682779591
+      ],
+      "holm_adjusted_p_within_family": 0.4232957670423295,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BT",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "BT",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.002104952953940956,
+      "cluster_bootstrap_ci_95": [
+        -0.0004558029436365287,
+        0.004212937115289775
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.2105578944210558,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0010595657276443397,
+        0.002553258910370262
+      ],
+      "holm_adjusted_p_within_family": 0.4232957670423295,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BT",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "BT",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0032501891122842194,
+      "cluster_bootstrap_ci_95": [
+        -0.0006466916415999128,
+        0.006162488317145262
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.2132878671213288,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0018071873552460915,
+        0.0037991850405366657
+      ],
+      "holm_adjusted_p_within_family": 0.4232957670423295,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BT",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "BT",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.01267719087473458,
+      "cluster_bootstrap_ci_95": [
+        -0.019068168811561963,
+        -0.0041387978874619195
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.018699813001869982,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.014124619975673615,
+        -0.009867836384141657
+      ],
+      "holm_adjusted_p_within_family": 0.09349906500934992,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BQR",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.07891864186523394,
+      "cluster_bootstrap_ci_95": [
+        0.03915009204359763,
+        0.10917331252996147
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00012999870001299986,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.06672119158648199,
+        0.08638931882365243
+      ],
+      "holm_adjusted_p_within_family": 0.0006499935000649994,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BQR",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.029902227124925032,
+      "cluster_bootstrap_ci_95": [
+        0.01194138934408769,
+        0.04350921281773437
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0013299867001329987,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.02418779769799415,
+        0.03300606377152861
+      ],
+      "holm_adjusted_p_within_family": 0.003989960100398996,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BQR",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.008308073312820966,
+      "cluster_bootstrap_ci_95": [
+        0.0020438848363038735,
+        0.01329611418623247
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.03413965860341397,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.005975041403974334,
+        0.009370048847246744
+      ],
+      "holm_adjusted_p_within_family": 0.03413965860341397,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BQR",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.05234870157598612,
+      "cluster_bootstrap_ci_95": [
+        0.022304214819008333,
+        0.07585623696631323
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00042999570004299955,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.04103482967221697,
+        0.057466458102486774
+      ],
+      "holm_adjusted_p_within_family": 0.0017199828001719982,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_BQR",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.02837965011155892,
+      "cluster_bootstrap_ci_95": [
+        0.010710733454131347,
+        0.041417399926030565
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.002949970500294997,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.022445143906059898,
+        0.031392549217918446
+      ],
+      "holm_adjusted_p_within_family": 0.005899941000589994,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_persistence",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.13794785845415386,
+      "cluster_bootstrap_ci_95": [
+        0.09421191961815059,
+        0.1702883783628704
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-06,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.12428329663015239,
+        0.14640056416913536
+      ],
+      "holm_adjusted_p_within_family": 4.9999500004999955e-05,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_persistence",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.08709151756363445,
+      "cluster_bootstrap_ci_95": [
+        0.0689962224580827,
+        0.1011252153173756
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-06,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.08117177492247447,
+        0.08983416827864853
+      ],
+      "holm_adjusted_p_within_family": 4.9999500004999955e-05,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_persistence",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.06237839754492328,
+      "cluster_bootstrap_ci_95": [
+        0.057466525352871736,
+        0.06676310944606083
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-06,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.06102136929003003,
+        0.06311712856208918
+      ],
+      "holm_adjusted_p_within_family": 4.9999500004999955e-05,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_persistence",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.11392314607146854,
+      "cluster_bootstrap_ci_95": [
+        0.08088351232120057,
+        0.14505105263053308
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-06,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.09888551916502811,
+        0.11918085025885083
+      ],
+      "holm_adjusted_p_within_family": 4.9999500004999955e-05,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_B6_vs_persistence",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.094934000501984,
+      "cluster_bootstrap_ci_95": [
+        0.07206360697195902,
+        0.11124155228902614
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-06,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.08729681939296646,
+        0.09847637933873081
+      ],
+      "holm_adjusted_p_within_family": 4.9999500004999955e-05,
+      "holm_family_size": 5
+    },
+    {
+      "family": "oracle_gap_report_not_confirmatory",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "ORACLE",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0005546651213195021,
+      "cluster_bootstrap_ci_95": [
+        0.00017800306548866867,
+        0.0009183864944306871
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.017199828001719982,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0004082096476419859,
+        0.0006154627956054007
+      ],
+      "equivalence_margin": 0.005,
+      "equivalent_within_margin": true,
+      "holm_adjusted_p_within_family": 0.06879931200687993,
+      "holm_family_size": 5
+    },
+    {
+      "family": "oracle_gap_report_not_confirmatory",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "ORACLE",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.0008425137188700094,
+      "cluster_bootstrap_ci_95": [
+        -0.0014371140940224317,
+        -8.0168029690647e-05
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.07639923600763993,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.0009460079363781613,
+        -0.0005396560103246117
+      ],
+      "equivalence_margin": 0.005,
+      "equivalent_within_margin": true,
+      "holm_adjusted_p_within_family": 0.19964800351996478,
+      "holm_family_size": 5
+    },
+    {
+      "family": "oracle_gap_report_not_confirmatory",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "ORACLE",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.0001178877360169262,
+      "cluster_bootstrap_ci_95": [
+        -0.000352930582180369,
+        0.00017184295161123131
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.46266537334626656,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.00016866796566513428,
+        -1.646599953010285e-05
+      ],
+      "equivalence_margin": 0.005,
+      "equivalent_within_margin": true,
+      "holm_adjusted_p_within_family": 0.46266537334626656,
+      "holm_family_size": 5
+    },
+    {
+      "family": "oracle_gap_report_not_confirmatory",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "ORACLE",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.00035895314452446197,
+      "cluster_bootstrap_ci_95": [
+        2.702098072838995e-05,
+        0.0008024621840010098
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.06654933450665493,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0002762773068911395,
+        0.00044325537677278526
+      ],
+      "equivalence_margin": 0.005,
+      "equivalent_within_margin": true,
+      "holm_adjusted_p_within_family": 0.19964800351996478,
+      "holm_family_size": 5
+    },
+    {
+      "family": "oracle_gap_report_not_confirmatory",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "ORACLE",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.03009552163813647,
+      "cluster_bootstrap_ci_95": [
+        0.010110912535611992,
+        0.0452793831573027
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0023299767002329975,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.022764253450405465,
+        0.03322215112833641
+      ],
+      "equivalence_margin": 0.005,
+      "equivalent_within_margin": false,
+      "holm_adjusted_p_within_family": 0.011649883501164988,
+      "holm_family_size": 5
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B2_recon",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.09609713462883308,
+      "cluster_bootstrap_ci_95": [
+        0.05064367123461164,
+        0.12961117071616923
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-05,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.08272757648436713,
+        0.10498910000627715
+      ],
+      "holm_adjusted_p_within_family": 0.000999990000099999,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B2_recon",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0395026339875259,
+      "cluster_bootstrap_ci_95": [
+        0.01858717291492856,
+        0.055457335929908896
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00011999880001199988,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.03318232637366787,
+        0.043413695424001926
+      ],
+      "holm_adjusted_p_within_family": 0.001079989200107999,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B2_recon",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.01517335995591772,
+      "cluster_bootstrap_ci_95": [
+        0.005440109367222266,
+        0.021990238441872874
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.001809981900180998,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.012477220679895124,
+        0.016737324128598657
+      ],
+      "holm_adjusted_p_within_family": 0.010859891401085989,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B2_recon",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.04315902854638267,
+      "cluster_bootstrap_ci_95": [
+        0.019798208683236767,
+        0.06319411363264957
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00032999670003299966,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.03371828781257261,
+        0.0468095909145016
+      ],
+      "holm_adjusted_p_within_family": 0.0023099769002309974,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "B2_recon",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.043009296233581434,
+      "cluster_bootstrap_ci_95": [
+        0.016688756988033186,
+        0.06306651183759543
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00022999770002299976,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.033969439660970574,
+        0.047372392271333885
+      ],
+      "holm_adjusted_p_within_family": 0.001839981600183998,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B2_recon",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -9.161549567484685e-05,
+      "cluster_bootstrap_ci_95": [
+        -0.0004758408406077991,
+        0.00030795419267076946
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.6494635053649463,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.0002037037915420021,
+        3.5975353403055038e-06
+      ],
+      "holm_adjusted_p_within_family": 1.0,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B2_recon",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0002565847655662144,
+      "cluster_bootstrap_ci_95": [
+        -6.679445736601068e-05,
+        0.0005960335304251553
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.18893811061889382,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0001296362470137709,
+        0.0003304659026669594
+      ],
+      "holm_adjusted_p_within_family": 0.9446905530944691,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B2_recon",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.00026521584995442397,
+      "cluster_bootstrap_ci_95": [
+        -6.626356071037483e-05,
+        0.0005543678458696785
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.1896681033189668,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.00014348463729055836,
+        0.0003206170584441661
+      ],
+      "holm_adjusted_p_within_family": 0.9446905530944691,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B2_recon",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0004524332467625037,
+      "cluster_bootstrap_ci_95": [
+        -0.0007867407730533717,
+        0.001427608990161754
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.5109248907510925,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        2.9814837384954946e-06,
+        0.0006354229219957234
+      ],
+      "holm_adjusted_p_within_family": 1.0,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_powercurve_reconstruction",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B2_recon",
+      "challenger": "B6",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 2.1829759052357112e-05,
+      "cluster_bootstrap_ci_95": [
+        -0.0005647200083419849,
+        0.000706047303189311
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.9498105018949811,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.00011348214149093683,
+        0.0002583701297967673
+      ],
+      "holm_adjusted_p_within_family": 1.0,
+      "holm_family_size": 10
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.06933013255687456,
+      "cluster_bootstrap_ci_95": [
+        0.03473852140937013,
+        0.09484243225991344
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00012999870001299986,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.05913432604404427,
+        0.07593046176364622
+      ],
+      "holm_adjusted_p_within_family": 0.0015599844001559983,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.022863776927708385,
+      "cluster_bootstrap_ci_95": [
+        0.0093677206193625,
+        0.032519921791757826
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0002899971000289997,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.01892525653522039,
+        0.02519980943793952
+      ],
+      "holm_adjusted_p_within_family": 0.0023199768002319975,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.004358142828450547,
+      "cluster_bootstrap_ci_95": [
+        0.0017276955118720062,
+        0.00635178884984806
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.004269957300426995,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.0035982891873700897,
+        0.004880396594504184
+      ],
+      "holm_adjusted_p_within_family": 0.01707982920170798,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.0459588165851706,
+      "cluster_bootstrap_ci_95": [
+        0.021604977284016166,
+        0.06715802474317292
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00012999870001299986,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.03566079503722568,
+        0.05034056425293951
+      ],
+      "holm_adjusted_p_within_family": 0.0015599844001559983,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "BQR",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.04080197353258044,
+      "cluster_bootstrap_ci_95": [
+        0.015454263642815422,
+        0.05923761568422804
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00032999670003299966,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.03245269686333162,
+        0.04503422402350052
+      ],
+      "holm_adjusted_p_within_family": 0.0023199768002319975,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.08641700982479886,
+      "cluster_bootstrap_ci_95": [
+        0.04658149544781452,
+        0.11666365035385834
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-06,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.07391239555923988,
+        0.09443689868179614
+      ],
+      "holm_adjusted_p_within_family": 0.00014999850001499987,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.03272076855587546,
+      "cluster_bootstrap_ci_95": [
+        0.016102385643851507,
+        0.045330248415198636
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 2.999970000299997e-05,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.027200726973670136,
+        0.03591189851807358
+      ],
+      "holm_adjusted_p_within_family": 0.00038999610003899964,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.011488645321501723,
+      "cluster_bootstrap_ci_95": [
+        0.0056319804347625775,
+        0.016182431040891156
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00018999810001899982,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.009412594900326652,
+        0.012568288934300264
+      ],
+      "holm_adjusted_p_within_family": 0.0017099829001709984,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.03722157680232966,
+      "cluster_bootstrap_ci_95": [
+        0.0171438809994584,
+        0.05545828589027161
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 9.99990000099999e-06,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.028347234661319828,
+        0.04024005683633179
+      ],
+      "holm_adjusted_p_within_family": 0.00014999850001499987,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.055453449413655306,
+      "cluster_bootstrap_ci_95": [
+        0.021828075745637877,
+        0.08003910399291338
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00012999870001299986,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.04423536274803906,
+        0.060995276116401605
+      ],
+      "holm_adjusted_p_within_family": 0.0015599844001559983,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S1_fixed_50pct",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.009588509308359354,
+      "cluster_bootstrap_ci_95": [
+        -0.014062951526736246,
+        -0.004035941940134058
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0025199748002519974,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.010458857060006196,
+        -0.007444254766363193
+      ],
+      "holm_adjusted_p_within_family": 0.012599874001259987,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S2_fixed_70pct",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.007038450197216647,
+      "cluster_bootstrap_ci_95": [
+        -0.011011388187213575,
+        -0.002050921271731125
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.00942990570094299,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.007806254333589089,
+        -0.005031927085878423
+      ],
+      "holm_adjusted_p_within_family": 0.02828971710282897,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S3_fixed_85pct",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.003949930484370419,
+      "cluster_bootstrap_ci_95": [
+        -0.0071133238859196245,
+        7.01329524528887e-05
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.15625843741562584,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.0044896522527425615,
+        -0.002338012608018663
+      ],
+      "holm_adjusted_p_within_family": 0.15625843741562584,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S4_random_uniform",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": -0.006389884990815511,
+      "cluster_bootstrap_ci_95": [
+        -0.01016178041711003,
+        -0.00168356022060213
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.03390966090339097,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        -0.007125893849547259,
+        -0.0046882811089809405
+      ],
+      "holm_adjusted_p_within_family": 0.06781932180678193,
+      "holm_family_size": 15
+    },
+    {
+      "family": "RQ1_secondary_censored_quantile_CLQR",
+      "scenario": "S5_wind_triggered",
+      "metric": "wis",
+      "reference": "B6",
+      "challenger": "CLQR",
+      "seed_aggregation": "per-window arithmetic mean before paired inference",
+      "estimand": "observation-weighted mean paired loss difference",
+      "direction": "positive means challenger has lower loss",
+      "difference_reference_minus_challenger": 0.012422323421021517,
+      "cluster_bootstrap_ci_95": [
+        0.004840604931776339,
+        0.01802665460890941
+      ],
+      "n_clusters": 20,
+      "sign_flip_p_two_sided": 0.0004099959000409996,
+      "sign_flip_type": "monte_carlo_sensitivity",
+      "sign_flip_draws": 100000,
+      "sign_flip_assumption": "independent sign-symmetric cluster contributions under the null",
+      "leave_one_cluster_out_range": [
+        0.010007552957271727,
+        0.013641674805582068
+      ],
+      "holm_adjusted_p_within_family": 0.0024599754002459975,
+      "holm_family_size": 15
+    }
+  ]
+}

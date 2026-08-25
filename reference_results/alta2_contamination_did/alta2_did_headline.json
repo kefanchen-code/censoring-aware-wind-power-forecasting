@@ -1,0 +1,228 @@
+{
+  "design": {
+    "farm": "Altahullion (ALTA2)",
+    "turbine_type_kw": 1330.0,
+    "n_reference_turbines": 5,
+    "basis_minutes": 10,
+    "data_file": "data/turbine_data/scada_df_ALTA2_20250904_20260301.parquet",
+    "identification": "E[v_i - v_j | i capped, j free] - E[v_i - v_j | i,j both free]",
+    "strata": [
+      "pair",
+      "v_bin"
+    ],
+    "note_no_direction_stratum": "wind direction is available only from the single met mast (1301257), not per turbine, so no direction sector stratum here; the Hill of Towie replication in 13_hot_contamination_did.py adds a 30 deg sector stratum",
+    "min_treat_frames_per_stratum": 5,
+    "min_base_frames_per_stratum": 20,
+    "bootstrap": "day-block, B=5000 (main dv) / B=800 (companion channels)",
+    "rng_seed": 42,
+    "n_usable_timestamps": 2408,
+    "usable_share_of_all": 0.09408087517093182,
+    "n_treat_rows": 7302,
+    "n_base_rows": 114418,
+    "n_pairs": 20,
+    "n_free_samples_for_power_curve": 38645
+  },
+  "headline": {
+    "delta_v_ms": 1.4450343376408914,
+    "delta_v_ci_low_ms": 1.1636863689437882,
+    "delta_v_ci_high_ms": 1.7412139565932891,
+    "delta_v_boot_median_ms": 1.4499722101069932,
+    "delta_v_n_boot": 5000,
+    "prob_delta_v_positive": 1.0,
+    "relative_delta": 0.16749720755337547,
+    "n_treat_frames": 7275,
+    "n_strata": 74,
+    "adopted_by_main_protocol": "relative_delta -> contamination.relative_delta = 0.167"
+  },
+  "channels": [
+    {
+      "channel": "dv",
+      "label": "机舱风速",
+      "unit": "m/s",
+      "did": 1.4450343376408914,
+      "ci_low": 1.161992531711991,
+      "ci_high": 1.742590375221094,
+      "n_treat_frames": 7275,
+      "n_strata": 74,
+      "significant": true,
+      "role": "outcome",
+      "n_boot": 800
+    },
+    {
+      "channel": "dv_rel",
+      "label": "风速相对偏差",
+      "unit": "-",
+      "did": 0.16749720755337547,
+      "ci_low": 0.13224454198724372,
+      "ci_high": 0.2062080606158613,
+      "n_treat_frames": 7275,
+      "n_strata": 74,
+      "significant": true,
+      "role": "outcome",
+      "n_boot": 800
+    },
+    {
+      "channel": "dpitch",
+      "label": "桨距角A",
+      "unit": "deg",
+      "did": -8.377227899458905,
+      "ci_low": -8.772456113053346,
+      "ci_high": -7.890083679636353,
+      "n_treat_frames": 7275,
+      "n_strata": 74,
+      "significant": true,
+      "role": "outcome",
+      "n_boot": 800
+    },
+    {
+      "channel": "drpm",
+      "label": "发电机转速",
+      "unit": "rpm",
+      "did": 16.867459569056553,
+      "ci_low": 8.951771600198994,
+      "ci_high": 28.178882772343833,
+      "n_treat_frames": 7275,
+      "n_strata": 74,
+      "significant": true,
+      "role": "outcome",
+      "n_boot": 800
+    },
+    {
+      "channel": "dti",
+      "label": "湍流强度",
+      "unit": "-",
+      "did": -0.03554288788893879,
+      "ci_low": -0.04472736551706513,
+      "ci_high": -0.026558100479508583,
+      "n_treat_frames": 7275,
+      "n_strata": 74,
+      "significant": true,
+      "role": "outcome",
+      "n_boot": 800
+    },
+    {
+      "channel": "damb",
+      "label": "环境温度[安慰剂]",
+      "unit": "degC",
+      "did": -0.01173694479689714,
+      "ci_low": -0.051003762130567884,
+      "ci_high": 0.03141510861596638,
+      "n_treat_frames": 7275,
+      "n_strata": 74,
+      "significant": false,
+      "role": "placebo",
+      "n_boot": 800
+    },
+    {
+      "channel": "dyaw",
+      "label": "偏航位置[设计检验]",
+      "unit": "deg",
+      "did": -0.7231306815056463,
+      "ci_low": -1.935175809570512,
+      "ci_high": 0.43466578303777836,
+      "n_treat_frames": 7275,
+      "n_strata": 74,
+      "significant": false,
+      "role": "design_check",
+      "n_boot": 800
+    }
+  ],
+  "event_study": [
+    {
+      "direction": "onset",
+      "label": "限功投入",
+      "expected_sign": "应为正",
+      "n_event_pairs": 15,
+      "reported": true,
+      "delta_v_ms": 1.022972333333324,
+      "ci_low_ms": 0.35305663518518593,
+      "ci_high_ms": 1.7950516888888792,
+      "n_boot": 2000,
+      "frames_each_side": 3
+    },
+    {
+      "direction": "release",
+      "label": "限功解除",
+      "expected_sign": "应为负",
+      "n_event_pairs": 2,
+      "reported": false,
+      "delta_v_ms": null,
+      "ci_low_ms": null,
+      "ci_high_ms": null
+    }
+  ],
+  "by_wind_band": [
+    {
+      "v_ref_band_ms": "(5, 6]",
+      "n_treat_frames": 240,
+      "delta_v_ms": 2.4851482747633815,
+      "relative_delta": 0.44026502994310773
+    },
+    {
+      "v_ref_band_ms": "(6, 7]",
+      "n_treat_frames": 564,
+      "delta_v_ms": 2.088152970102121,
+      "relative_delta": 0.3198614415665688
+    },
+    {
+      "v_ref_band_ms": "(7, 8]",
+      "n_treat_frames": 888,
+      "delta_v_ms": 1.9155938131339243,
+      "relative_delta": 0.2559714295069788
+    },
+    {
+      "v_ref_band_ms": "(8, 9]",
+      "n_treat_frames": 1096,
+      "delta_v_ms": 1.8208582285767454,
+      "relative_delta": 0.2145990587605596
+    },
+    {
+      "v_ref_band_ms": "(9, 10]",
+      "n_treat_frames": 987,
+      "delta_v_ms": 1.5205785776537846,
+      "relative_delta": 0.16148440873517594
+    },
+    {
+      "v_ref_band_ms": "(10, 12]",
+      "n_treat_frames": 1844,
+      "delta_v_ms": 1.12868942343898,
+      "relative_delta": 0.10492663877115305
+    },
+    {
+      "v_ref_band_ms": "(12, 30]",
+      "n_treat_frames": 1651,
+      "delta_v_ms": 0.8774964538502017,
+      "relative_delta": 0.06945099696449793
+    }
+  ],
+  "by_depth": [
+    {
+      "cap_depth_pu": "<0.25",
+      "n_treat_frames": 6670,
+      "delta_v_ms": 1.3725597182183913,
+      "delta_pitch_deg": -8.533854865013776,
+      "delta_rpm": 17.066158528891716
+    },
+    {
+      "cap_depth_pu": "0.25-0.4",
+      "n_treat_frames": 133,
+      "delta_v_ms": 2.1394338515417832,
+      "delta_pitch_deg": -8.315166269343191,
+      "delta_rpm": 21.388652450898405
+    },
+    {
+      "cap_depth_pu": "0.4-0.6",
+      "n_treat_frames": 101,
+      "delta_v_ms": 2.15539028543225,
+      "delta_pitch_deg": -7.115486915176045,
+      "delta_rpm": 5.447040232581733
+    },
+    {
+      "cap_depth_pu": "0.6-0.95",
+      "n_treat_frames": 117,
+      "delta_v_ms": 2.388183644343165,
+      "delta_pitch_deg": -4.503230718841756,
+      "delta_rpm": 5.4098038623856155
+    }
+  ]
+}

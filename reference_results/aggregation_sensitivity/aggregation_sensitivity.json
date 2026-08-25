@@ -1,0 +1,77 @@
+{
+  "turbines": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T07",
+    "T11",
+    "T13",
+    "T14"
+  ],
+  "n_test_minutes": 18230,
+  "copula_draws_per_block": 4000,
+  "seed": 20260805,
+  "wind_bins": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      10,
+      12
+    ],
+    [
+      12,
+      99
+    ]
+  ],
+  "shortfall_fractions": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "note": "aggregate expressed in pu per turbine (farm mean); value-layer rerun out of scope (limitation)",
+  "records": [
+    {
+      "regime": "independent",
+      "agg_q10_mean": 0.1252228341384863,
+      "agg_q50_mean": 0.30926497584541063,
+      "agg_q90_mean": 0.6307112560386473,
+      "shortfall_prob_0.3": 0.5232583653318705,
+      "shortfall_prob_0.5": 0.7348875479978059,
+      "shortfall_prob_0.7": 0.8592978606692265
+    },
+    {
+      "regime": "empirical_copula",
+      "agg_q10_mean": 0.12334642512077296,
+      "agg_q50_mean": 0.30971062801932364,
+      "agg_q90_mean": 0.6361286312399356,
+      "shortfall_prob_0.3": 0.5241360394953374,
+      "shortfall_prob_0.5": 0.7323642347778387,
+      "shortfall_prob_0.7": 0.8587493143170598
+    },
+    {
+      "regime": "perfect_correlation",
+      "agg_q10_mean": 0.11002632850241545,
+      "agg_q50_mean": 0.3081081320450886,
+      "agg_q90_mean": 0.6536401449275362,
+      "shortfall_prob_0.3": 0.5201865057597367,
+      "shortfall_prob_0.5": 0.7275370268787713,
+      "shortfall_prob_0.7": 0.8537575425123423
+    }
+  ]
+}
