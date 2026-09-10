@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-"""Step 66: C2 多机组双场站数据准备（结果盲的数据层）。
+"""Step 66: prepare outcome-blind data for two-farm validation (C2).
 
-为两组机组各自构建与主基准同族的半合成场景底本：
-- ALTA2 健康 5 台（1301253-1301257，10-min SCADA，名单来自
-  scripts/65_alta2_multi_health_audit.py 的 alta2_health_audit.json）；
-- HOT 8 台 1-min（T01-T05, T07, T13, T14；排除 T11，控制语义异常，
-  引用 results/hot_truth_channel_bias/hot_truth_bias.json 审计）。
+Construct semi-synthetic substrates for five healthy ALTA2 turbines using
+10-min SCADA and eight HOT turbines using one-minute data. HOT T11 is excluded
+because of anomalous control semantics documented by the truth-channel audit.
 
-每台机组：真实自由分钟即底本（A_true 已知），限功分钟不参与底本；
-注入场景 S0/S1/S4/S5 与主协议同参数（S1=50% 定深 60% 时长占比 120-min 事件、
-S4=均匀随机深度、S5=风速>12 触发 60% 定深），时长以分钟计、与采样步长无关。
+For each turbine, real free-generation records provide known latent truth;
+real curtailed records are excluded from the substrate. Scenarios S0, S1, S4,
+and S5 use the main-protocol parameters, with durations expressed in minutes
+independently of sampling interval.
 
-输出：results/multi_turbine_validation/data/{farm}_{turbine}/
-    base_info.json + synthetic_{S0,S1,S4,S5}.parquet
-用法：
+Outputs are written under
+``results/multi_turbine_validation/data/{farm}_{turbine}/``.
+
+Usage:
     python scripts/66_multi_turbine_data_prep.py
 """
 from __future__ import annotations

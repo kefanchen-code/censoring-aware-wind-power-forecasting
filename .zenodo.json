@@ -1,0 +1,34 @@
+{
+  "title": "Code for probabilistic forecasting of potential available power under control-induced censoring for a one-turbine wind-to-hydrogen off-grid microgrid",
+  "version": "1.0.0",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "eng",
+  "description": "Versioned source code, frozen experiment configurations, tests, protocols, and compact reference outputs supporting the associated forecasting study. The BSD 3-Clause metadata licence applies to the software; tracked derived data artifacts are separately released under CC BY 4.0 as specified in LICENSE-DATA.",
+  "creators": [
+    {
+      "name": "Chen, Kefan",
+      "affiliation": "Zhejiang University of Technology"
+    }
+  ],
+  "license": "bsd-3-clause",
+  "keywords": [
+    "potential available power",
+    "control-induced censoring",
+    "probabilistic wind power forecasting",
+    "censored likelihood",
+    "wind-to-hydrogen"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.19948235",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.20204946",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset"
+    }
+  ]
+}

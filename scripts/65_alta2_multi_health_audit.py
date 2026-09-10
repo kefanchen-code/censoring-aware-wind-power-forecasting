@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Step 65: Altahullion 全场 10-min SCADA 健康审计，确定多机组验证名单（C2）。
+"""Step 65: audit Altahullion 10-min SCADA for multi-turbine validation (C2).
 
-判据（先于任何预测结果声明，属结果盲的数据质量筛查）：
-1. 数据可得性：观测行覆盖率 ≥ 90%；
-2. 活跃口径存在：存在活跃分钟（ActPower_Value_mean > 50 kW）；
-3. 指令通道存在：PowerRed 与 PowerRef 列非全缺失；
-4. 功率-风速物理性：高风速（>12 m/s）中位功率 > 30% 额定；
-5. 无整段恒零/恒常异常：功率标准差 > 10 kW。
+The outcome-blind screening criteria are at least 90% row coverage, active
+minutes above 50 kW, non-empty PowerRed and PowerRef channels, median power
+above 30% rated at wind speeds over 12 m/s, and power standard deviation above
+10 kW.
 
-输出：results/multi_turbine_validation/alta2_health_audit.json
-      + 健康机组名单（供后续精简协议消费）。
+Output: ``results/multi_turbine_validation/alta2_health_audit.json`` and the
+healthy-turbine list consumed by the reduced multi-turbine protocol.
 
-用法：
+Usage:
     python scripts/65_alta2_multi_health_audit.py
 """
 from __future__ import annotations

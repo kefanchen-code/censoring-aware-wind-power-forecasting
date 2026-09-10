@@ -1,25 +1,23 @@
 # -*- coding: utf-8 -*-
-"""Step 62: 双风场真实限功指令统计，为 S6_realistic 注入协议提供经验分布（C3）。
+"""Step 62: summarize real control commands at two wind farms for S6 (C3).
 
-数据轨
-------
-- ALTA2 T11：1-min SCADA（data/turbine_data/fl_df_ALTA2_T11_*.parquet，经
-  scripts/10_altahullion_audit.py 的 load_frame 读取），限功判据 = PowerRed>0
-  且机组活跃，与解除事件筛查口径一致。
-- HOT 8 台（T01-T05, T07, T13, T14；排除 T11，理由=控制语义异常，
-  见 results/hot_truth_channel_bias/hot_truth_bias.json）：1-min 转换产物
-  data/hill_of_towie/converted/fl_df_HOT_*_1min.parquet，限功判据 =
-  PowerRed_PowerRed>0；删失深度取 ActLimit_Power（实际生效限值）。
+Data tracks
+-----------
+- ALTA2 T11: one-minute SCADA loaded through ``load_frame`` in script 10.
+  Curtailment requires ``PowerRed > 0`` while the turbine is active, matching
+  the release-event screening rule.
+- Eight HOT turbines (T01-T05, T07, T13, T14): converted one-minute files.
+  T11 is excluded because of anomalous control semantics documented in the
+  truth-channel bias audit. Curtailment requires ``PowerRed_PowerRed > 0`` and
+  effective cap depth is obtained from ``ActLimit_Power``.
 
-统计对象（每事件）：时长 min、深度 1 - C/额定（C=PowerRef 或 ActLimit_Power）、
-触发时刻风速、触发小时。另统计场级同步性（HOT 多台同时限功的占比）。
+For each event, report duration, depth ``1 - cap/rated``, onset wind speed, and
+onset hour. Also report farm-level simultaneity for HOT.
 
-输出：results/real_command_stats/
-    real_command_stats.json      汇总（分位数表 + 触发分布 + 同步性）
-    events_alta2.csv / events_hot.csv   逐事件明细
-    Fig_real_command_stats.{png,svg}    时长与深度经验分布对比
+Outputs under ``results/real_command_stats/`` include the JSON summary,
+event-level CSV files, and empirical duration/depth figures.
 
-用法：
+Usage:
     python scripts/62_real_command_stats.py
 """
 from __future__ import annotations

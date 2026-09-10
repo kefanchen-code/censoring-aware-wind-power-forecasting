@@ -384,19 +384,28 @@ def _experiment_id(
     """Composite fingerprint: protocol + frozen input data + comparison plan.
 
     The protocol_id alone covers only the frozen protocol core, so two runs on
-    different input data can share it.  Folding in the full protocol_manifest
-    hash (which pins per-scenario data SHA-256 and the segment assignment) and
-    the comparisons configuration yields a unique experiment fingerprint.
+    different input data can share it.  The fingerprint deliberately excludes
+    creation timestamps and absolute local paths so that an identical experiment
+    receives the same identifier on every machine.
     """
 
     manifest_path = output_dir / "protocol_manifest.json"
     if not manifest_path.is_file():
         return None
-    digest = hashlib.sha256()
-    digest.update(protocol_id.encode("ascii"))
-    digest.update(sha256_file(manifest_path).encode("ascii"))
-    digest.update(stable_json_hash(config.get("comparisons", [])).encode("ascii"))
-    return digest.hexdigest()
+    with manifest_path.open("r", encoding="utf-8") as handle:
+        manifest = json.load(handle)
+    data_hashes = {
+        str(scenario): str(metadata["sha256"])
+        for scenario, metadata in manifest.get("data_files", {}).items()
+    }
+    identity_payload = {
+        "protocol_id": protocol_id,
+        "data_sha256": data_hashes,
+        "segment_signature": manifest.get("segment_signature"),
+        "segment_assignment": manifest.get("segment_assignment"),
+        "comparisons": config.get("comparisons", []),
+    }
+    return stable_json_hash(identity_payload)
 
 
 def aggregate_existing(

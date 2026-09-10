@@ -1,10 +1,18 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the archived release and the associated article."
 type: software
-title: "Censoring-aware probabilistic forecasting of single-turbine potential available power"
-version: 0.1.0
-date-released: 2026-08-25
+title: "Code for probabilistic forecasting of potential available power under control-induced censoring for a one-turbine wind-to-hydrogen off-grid microgrid"
+version: 1.0.0
+date-released: 2026-09-10
 authors:
   - family-names: Chen
     given-names: Kefan
+    affiliation: "Zhejiang University of Technology"
+license: BSD-3-Clause
 repository-code: "https://github.com/kefanchen-code/censoring-aware-wind-power-forecasting"
+keywords:
+  - potential available power
+  - control-induced censoring
+  - probabilistic wind power forecasting
+  - censored likelihood
+  - wind-to-hydrogen

@@ -1,30 +1,22 @@
 # -*- coding: utf-8 -*-
-"""Step 14: 量化 Hill of Towie 真值通道的系统性偏置，与其 hold-out MAE 并列。
+"""Step 14: quantify systematic bias in the Hill of Towie truth channel.
 
-背景（已核实，非假设）
-----------------------
-``archive/hot_real_layer/scripts/21_hot_truth_channel.py`` 设计了两条独立的
-PAP 重建路线：A 功率曲线路（把机舱风速送入未限功功率曲线）与 B 邻机路线
-（用同期未限功邻机的功率按机对映射外推）。落盘结果显示，**限功窗 100% 由
-路线 A 重建，路线 B 零覆盖**——因为场级同步限功时没有未限功邻机可用。
+The reconstructed truth channel has two intended routes: a free-generation
+power curve driven by nacelle wind and a contemporaneous-neighbour route.
+Archived outputs show that curtailed windows have 100% power-curve coverage
+and zero neighbour coverage because no free neighbour is available during
+synchronous farm-level curtailment.
 
-该脚本的论点链
---------------
-1. 路线 A 的输入正是 ``13_hot_contamination_did.py`` 实测到被限功污染的机舱
-   风速通道。因此限功窗的 PAP 真值带有系统性（非随机）偏差。
-2. 偏差量 = pc(v_obs) − pc(v_obs − Δv)，即把观测到的（被污染的）读数退回到
-   干净读数后功率曲线给出的差。用逐帧的限功档位取对应的 Δv，因为实测显示
-   Δv 随限功深度改变符号。
-3. 脚本 21 的 docstring 自陈验证 "on CLEAN windows only"，而干净窗定义上无
-   污染，故其报告的 hold-out MAE 结构性地看不到这项偏差——两者不是同一个
-   误差来源，必须并列而非相减。
-4. 把偏差量级与待检测的效应量（ΔWIS）并列，判断信噪比是否结构性不足。
+Script 13 measures control contamination in the nacelle-wind input. This
+script estimates the resulting bias as ``pc(v_obs) - pc(v_obs - delta_v)``
+using cap-depth-specific shifts. The clean-window hold-out MAE from script 21
+and this curtailed-window systematic bias describe different error sources and
+are reported side by side, then compared with the forecasting effect size.
 
-输入：``results/hot_contamination_did/``（脚本 13 的产出）
-      ``results/hot_truth_channel/*.parquet``（脚本 21 的可复现产出）
-输出：``results/hot_truth_channel_bias/``
+Inputs are the script 13 outputs and reproducible truth-channel Parquet files;
+outputs are written under ``results/hot_truth_channel_bias/``.
 
-用法：
+Usage:
     python scripts/14_hot_truth_channel_bias.py
 """
 import json
@@ -59,7 +51,7 @@ REPORTED_HOLDOUT = {
 EFFECT_SIZE = {
     "delta_wis": 0.00383,
     "delta_wis_relative": 0.077,
-    "note": "B4 vs B6 主评分差，HOT 真实层",
+    "note": "B4 versus B6 primary-score difference in the HOT real-data layer",
 }
 
 
@@ -83,7 +75,7 @@ def load_recomputed_holdout():
 
 
 def load_did():
-    """脚本 13 的实测 Δv：总体、按限功档位、按风速档。"""
+    """Load measured delta-v overall, by cap depth, and by wind band."""
 
     headline_path = DID_DIR / "hot_did_headline.json"
     if not headline_path.exists():
@@ -97,10 +89,10 @@ def load_did():
 
 
 def fit_power_curve(wind, power):
-    """复刻脚本 21 的分箱中位数功率曲线，返回 (插值函数, 分箱数)。
+    """Rebuild the script 21 binned-median power curve.
 
-    直接从真值通道文件的干净窗重建，因而与实际用于重建 PAP 的曲线同源，
-    而不是借用脚本 13 的场级曲线。
+    Clean windows from the truth-channel file reproduce the curve used for PAP
+    reconstruction instead of borrowing the farm-level curve from script 13.
     """
 
     finite = np.isfinite(wind) & np.isfinite(power)
@@ -127,7 +119,7 @@ def fit_power_curve(wind, power):
 
 
 def depth_delta_lookup(by_depth):
-    """限功档位 -> Δv(m/s)。档位边界与脚本 13 的 DEPTH_EDGES 一致。"""
+    """Map cap-depth bins to delta-v using the script 13 boundaries."""
 
     edges = [0.0, 0.25, 0.4, 0.6, 0.95]
     table = by_depth.set_index("depth_bin_pu")["delta_v_ms"].to_dict()
@@ -169,7 +161,7 @@ def summarise_bias(label, wind, bias_kw, depth=None):
 
 
 def process(path, headline, by_depth):
-    """一个真值通道文件的偏置量化。返回 (摘要行, 按档位行, 组成审计)。"""
+    """Quantify one truth-channel file and return summaries and route audit."""
 
     frame = pd.read_parquet(path)
     curtailed = frame["curtailed"].astype(bool).to_numpy()
@@ -266,9 +258,9 @@ def main():
     REPORTED_HOLDOUT = load_recomputed_holdout()
     headline, by_depth, by_band = load_did()
 
-    print("=== 脚本 13 实测的 Δv（主规格）===")
+    print("=== Delta-v measured by script 13 (primary specification) ===")
     print(
-        "总体 Δv = %+.3f m/s  95%%CI [%+.3f, %+.3f]  相对 %+.1f%%"
+        "Overall delta-v = %+.3f m/s  95%%CI [%+.3f, %+.3f]  relative %+.1f%%"
         % (
             headline["delta_v_ms"],
             headline["delta_v_ci_low_ms"],
@@ -276,7 +268,7 @@ def main():
             100 * headline["relative_delta"],
         )
     )
-    print("按限功档位（符号随深度改变，故逐帧查表）:")
+    print("By cap depth (the sign changes with depth, so lookup is frame-specific):")
     for _, row in by_depth.iterrows():
         print(
             "   %-10s Δv = %+.3f m/s (n_treat=%d)"
@@ -287,7 +279,7 @@ def main():
     for name in ("truth_channel_T11_10min.parquet", "truth_channel_T11_1min.parquet"):
         path = TRUTH_DIR / name
         if not path.exists():
-            print("\n[skip] 缺少 %s" % path)
+            print("\n[skip] missing %s" % path)
             continue
         summaries, depths, composition = process(path, headline, by_depth)
         summary_rows.extend(summaries)
@@ -298,11 +290,11 @@ def main():
         raise SystemExit("no truth-channel parquet was available")
 
     print("\n" + "=" * 78)
-    print("=== 真值通道的重建路线组成（限功窗）===")
+    print("=== Truth-channel reconstruction routes in curtailed windows ===")
     print("=" * 78)
     for composition in compositions:
         print(
-            "%-34s 总帧=%6d 限功窗=%5d  功率曲线路占限功窗 %.1f%%  邻机路 %.1f%%"
+            "%-34s total=%6d curtailed=%5d  power-curve share=%.1f%%  neighbour share=%.1f%%"
             % (
                 composition["file"],
                 composition["n_rows"],
@@ -312,16 +304,16 @@ def main():
             )
         )
     print(
-        "\n邻机路线零覆盖：设计中更稳健的那条路在限功窗上完全不可用，因此限功窗真值\n"
-        "全部继承被污染的机舱风速通道，没有独立交叉校验。"
+        "\nThe neighbour route has zero coverage in curtailed windows. Their reconstructed\n"
+        "truth therefore inherits the contaminated nacelle-wind channel without an independent cross-check."
     )
 
     print("\n" + "=" * 78)
-    print("=== 限功窗 PAP 真值的系统性偏置 ===")
+    print("=== Systematic PAP-truth bias in curtailed windows ===")
     print("=" * 78)
     print(
         "%-46s %8s %10s %10s %8s"
-        % ("样本 / Δv 口径", "n", "均值kW", "|均值|kW", "%额定")
+        % ("sample / delta-v basis", "n", "mean kW", "|mean| kW", "% rated")
     )
     for row in summary_rows:
         print(
@@ -338,10 +330,10 @@ def main():
         OUT_DIR / "hot_truth_bias_summary.csv", index=False, encoding="utf-8-sig"
     )
 
-    print("\n--- 按限功档位（偏置符号随深度翻转）---")
+    print("\n--- By cap depth (bias sign changes with depth) ---")
     print(
         "%-40s %8s %9s %10s %10s %8s"
-        % ("样本 / 档位", "n", "Δv(m/s)", "均值kW", "|均值|kW", "vs MAE")
+        % ("sample / depth", "n", "delta-v", "mean kW", "|mean| kW", "vs MAE")
     )
     for row in depth_rows:
         print(
@@ -360,11 +352,11 @@ def main():
     )
 
     print("\n" + "=" * 78)
-    print("=== 与已报告 hold-out MAE 并列（不可相减：两者是不同的误差来源）===")
+    print("=== Comparison with hold-out MAE (distinct error sources, not subtractive) ===")
     print("=" * 78)
     primary = summary_rows[0]
     print(
-        "已报告 hold-out MAE（功率曲线路）: %.0f kW = %.1f%% 额定；验证集 = %s"
+        "Reported hold-out MAE (power-curve route): %.0f kW = %.1f%% rated; validation set = %s"
         % (
             REPORTED_HOLDOUT["mae_kw"],
             100 * REPORTED_HOLDOUT["mae_frac_rated"],
@@ -372,8 +364,8 @@ def main():
         )
     )
     print(
-        "本脚本量化的系统性偏置（限功窗，逐档 Δv）: 均值 %+.1f kW，|均值| %.1f kW"
-        " = %.2f%% 额定"
+        "Systematic bias quantified here (curtailed windows, depth-specific delta-v): "
+        "mean %+.1f kW, |mean| %.1f kW = %.2f%% rated"
         % (
             primary["mean_bias_kw"],
             primary["mean_abs_bias_kw"],
@@ -382,7 +374,7 @@ def main():
     )
     worst = max(depth_rows, key=lambda row: row["mean_abs_bias_kw"])
     print(
-        "最重档位 %s: |均值| %.1f kW = %.2f%% 额定 = 已报告 MAE 的 %.2f 倍"
+        "Deepest cap bin %s: |mean| %.1f kW = %.2f%% rated = %.2f times the reported MAE"
         % (
             worst["depth_bin_pu"],
             worst["mean_abs_bias_kw"],
@@ -391,13 +383,13 @@ def main():
         )
     )
     print(
-        "\n关键点：hold-out MAE 只在干净窗上验证，而干净窗定义上无污染，因此该 MAE\n"
-        "结构性地看不到上面这项偏差。它是随机误差的度量，不是系统性偏差的上界。"
+        "\nThe hold-out MAE is evaluated only on clean windows, which are uncontaminated by\n"
+        "definition. It therefore measures random error and does not bound the systematic bias above."
     )
     print(
-        "\n信噪比：待检测效应量 ΔWIS = %.5f（相对 %.1f%%），而限功窗真值的系统性\n"
-        "偏差达 %.2f%% 额定。标签偏差与效应量同阶或更大时，排序反转不可解读为\n"
-        "模型质量差异（Ferro 2017：观测误差下评分本身有偏）。"
+        "\nSignal-to-noise comparison: delta-WIS = %.5f (relative %.1f%%), while systematic\n"
+        "truth bias in curtailed windows reaches %.2f%% rated. If label bias is comparable\n"
+        "to or larger than the effect, a ranking reversal cannot identify model quality."
         % (
             EFFECT_SIZE["delta_wis"],
             100 * EFFECT_SIZE["delta_wis_relative"],
@@ -417,7 +409,7 @@ def main():
     (OUT_DIR / "hot_truth_bias.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    print("\n已写入 %s" % OUT_DIR)
+    print("\nSaved to %s" % OUT_DIR)
 
 
 if __name__ == "__main__":

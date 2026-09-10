@@ -3,6 +3,25 @@
 Commands are expected to be run from the repository root after creating the
 environment and installing the package in editable mode.
 
+## Model identifier map
+
+Configurations and archived outputs use stable internal identifiers, whereas
+the manuscript uses shorter display names.
+
+| Internal identifier | Manuscript name | Role |
+| --- | --- | --- |
+| `B0_persistence` | Persistence | Last-observation reference |
+| `B0_climatology` | Climatology | Training-only empirical climatology |
+| `B1` | DEL | Delete censored training targets |
+| `B2_recon` | REC | Reconstruct censored targets with a power curve |
+| `B4_plain` | PL-basic | Point labels without control-state inputs |
+| `B4` | PL | Point labels with the matched observable inputs |
+| `B6` | CL-PMF | Proposed discrete censored-likelihood model |
+| `BQR` | QR | Point-label quantile regression |
+| `CLQR` | CL-QR | Censoring-aware quantile regression |
+| `BT` | CL-Tobit | Gaussian censored-likelihood model |
+| `ORACLE` | ORC | Full-latent-truth reference |
+
 ## Verification tiers
 
 ### Tier 1: code-level verification
@@ -84,13 +103,17 @@ overwritten.
 | Matched statistical comparisons | same main run | `comparisons.json` |
 | WIS decomposition | `scripts/52_wis_decomposition.py` | `wis_components*.csv` |
 | S0 negative control | `configs/pap_benchmark_s0_control.json` | S0 `comparisons.json` |
+| S5 overlap and support diagnostics | `scripts/61_s5_applicability.py` | `s5_applicability/` |
 | Input-contamination stress test | contamination configurations and `scripts/54_contamination_robustness.py` | `contamination_robustness/` |
 | Grid sensitivity | 53/106/212-bin configurations and `scripts/68_bins_sensitivity_table.py` | `bins_sensitivity/` |
-| Realistic S6 scenario | `scripts/62_real_command_stats.py`, `scripts/64_s6_realistic_scenario.py` | `pap_benchmark_semisyn_s6/` |
+| Empirical command statistics and realistic S6 scenario | `scripts/62_real_command_stats.py`, `scripts/64_s6_realistic_scenario.py` | `real_command_stats/`, `pap_benchmark_semisyn_s6/` |
 | Direction across 13 turbines | `scripts/66_multi_turbine_data_prep.py`, `scripts/67_multi_turbine_benchmark.py` | `multi_turbine_validation/runs/` |
 | LOTO/LOFO tests | `scripts/70_loto_lofo.py` | `loto_lofo/loto_lofo_results.csv` |
+| Altahullion input-contamination DiD | `scripts/12_measure_censoring_contamination.py` | `alta2_contamination_did/` |
+| Hill of Towie input-contamination DiD | `scripts/13_hot_contamination_did.py` | `hot_contamination_did/` |
 | Hill of Towie fast-log conversion | `scripts/20_hot_fastlog_to_1min.py` | `data/hill_of_towie/converted/` |
 | Rebuilt T11 truth channel | `scripts/21_hot_truth_channel.py` | `results/hot_truth_channel/` |
+| Hill of Towie truth-channel bias audit | `scripts/14_hot_truth_channel_bias.py` | `hot_truth_channel_bias/` |
 | Real release-event validation | `protocols/release_event_protocol_v1_3.md`, `scripts/63_release_event_validation.py` | `release_event_validation_v1_3/` |
 | Quantitative paper figures | `paper_assets/figures/make_figures_paper1.py` | `figures/` |
 
@@ -111,4 +134,7 @@ machine-readable source of truth.
 The separately versioned real release-event protocol is documented in
 `protocols/release_event_protocol_v1_3.md`. The legacy v1.2 document is missing;
 only its historical SHA-256 remains. The v1.3 document is therefore labelled a
-reconstructed replacement and receives its own hash and output directory.
+reconstructed replacement and receives its own hash and output directory. The
+versioned release reports v1.3 as the executable protocol and retains v1.2 only
+as a clearly labelled historical artifact; it does not claim byte-for-byte
+reproduction of the missing v1.2 document.

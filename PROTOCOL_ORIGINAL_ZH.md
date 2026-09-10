@@ -108,7 +108,7 @@ python scripts/41_value_analysis.py
 
 主要产物：
 
-- 第一层（`results/pap_benchmark_semisyn/`）：`protocol_manifest.json`、`last_run_manifest.json`、`data_summary.json`、`artifacts/<scenario>/<model>/<seed>/`（含 `"oracle"` 标记）、`metrics_by_run.csv`（含删失低估率）、`metrics_summary.csv`、`metrics_stratified.csv`、`comparisons.json`（含等效性字段与 `experiment_id`）；`benchmark_status.json` 中的 `experiment_id = SHA-256(protocol_id + protocol_manifest 文件哈希 + comparisons 配置哈希)`，用于区分同一 protocol_id 下不同数据/比较计划的实验；S0 诊断产物在 `results/pap_benchmark_s0_control/`；
+- 第一层（`results/pap_benchmark_semisyn/`）：`protocol_manifest.json`、`last_run_manifest.json`、`data_summary.json`、`artifacts/<scenario>/<model>/<seed>/`（含 `"oracle"` 标记）、`metrics_by_run.csv`（含删失低估率）、`metrics_summary.csv`、`metrics_stratified.csv`、`comparisons.json`（含等效性字段与 `experiment_id`）；`benchmark_status.json` 中的 `experiment_id` 由 `protocol_id`、各场景输入数据的 SHA-256、固定分段及 comparisons 配置共同生成，并排除时间戳和本机绝对路径，用于稳定地区分同一 `protocol_id` 下的不同数据/比较计划；S0 诊断产物在 `results/pap_benchmark_s0_control/`；
 - 第二层：`results/value_semisyn/<scenario>_trajectories.mat`（`provenance` 记录 `protocol_id`、`experiment_id`、`protocol_manifest_sha256`、每个源 `forecast.npz` 的 SHA-256 及场景/模型/种子聚合规则）、`仿真模型/长时间风氢价值模型/results/semisyn_value_results.mat`、`results/value_semisyn/value_summary.csv`、`pareto_frontier.csv`、`confidence_intervals.csv`、`wis_regret_table.csv`。
 
 ## 5. 新增模型

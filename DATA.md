@@ -72,5 +72,6 @@ unverifiable assumption.
 
 Both datasets were released by Renewable Energy Systems on behalf of The
 Renewables Infrastructure Group. Users must retain the dataset attribution and
-comply with the CC BY 4.0 terms. The repository's eventual software license
-will apply only to the source code, not to these datasets.
+comply with the CC BY 4.0 terms. The repository's software license
+applies only to the source code, not to these datasets or to the tracked
+derived data artifacts. See `LICENSE-DATA` and `THIRD_PARTY_NOTICES.md`.

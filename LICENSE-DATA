@@ -1,0 +1,17 @@
+Data and derived-artifact licence notice
+
+The BSD 3-Clause License in LICENSE applies to the software source code only.
+It does not replace the licences of the wind-farm datasets used by the
+software.
+
+The Altahullion and Hill of Towie source datasets are distributed under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+The repository does not redistribute the raw source archives. Tracked compact
+tables, JSON summaries, and the semi-synthetic example under
+reference_results/ are derived from those CC BY 4.0 sources and are made
+available under CC BY 4.0. Reusers must retain attribution to the source
+dataset creators and indicate whether changes were made. See DATA.md and
+THIRD_PARTY_NOTICES.md for the records, identifiers, and attribution details.

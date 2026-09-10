@@ -1,32 +1,23 @@
 # -*- coding: utf-8 -*-
-"""Step 4: 实测控制诱导删失对输入通道的污染幅度。
+"""Step 4: measure control-induced contamination of input channels.
 
-识别策略（双重差分, DiD）
-------------------------
-真实限功在本风场 55% 的时刻是场级同步的，此时全部机组读数同时被污染，
-无法互为参照。因此只使用"部分限功"时刻：同一时刻既有限功发电机组 i，
-又有未限功发电机组 j。对每个机对 (i, j)：
+The difference-in-differences (DiD) design uses partially curtailed timestamps
+at which turbine i is curtailed while turbine j is free. For each turbine pair,
+the contamination estimate is
 
-    污染量 = E[v_i - v_j | i 限功] - E[v_i - v_j | i,j 均未限功]
+    E[v_i - v_j | i curtailed] - E[v_i - v_j | i and j free].
 
-后一项吸收了机位固有的风速差（尾流、地形、风速计标定），前一项额外包含
-限功导致的读数偏移。分层按参照机 j 的风速区间进行（j 未被污染），
-并可选按风向扇区分层。
+The free-period contrast absorbs persistent site differences, while the first
+term additionally contains the control-induced reading shift. Strata are
+defined by reference-turbine wind-speed band. The same design measures pitch,
+rotational-speed, and other channel shifts and translates wind-speed bias
+through an empirical power curve.
 
-同一框架同时测量桨距角与转速的偏移，以及污染经功率曲线放大后的功率含义。
-
-设计有效性检验
---------------
-1. 安慰剂通道：环境温度不受限功影响，其 DiD 应统计不显著；若显著则说明
-   处理组与对照组时刻本身不可比（识别失败）。
-2. 事件研究交叉验证：只用限功投入/解除瞬间前后各 K 帧，机组自身作参照，
-   再减去同期未限功机组的风速变化。投入与解除应给出等量反号的估计。
-
-落盘
-----
-除 stdout 外，全部结果同时写入 results/alta2_contamination_did/（命名与
-13_hot_contamination_did.py 的产物对齐，便于双风场对比）。本脚本的数字是
-主协议污染注入强度（相对 +16.7%）的唯一实测来源，因此必须可复现地落盘。
+Ambient temperature is a placebo channel. An event-study cross-check compares
+onset and release transitions against simultaneously free turbines. Results
+are written to ``results/alta2_contamination_did/`` using names aligned with
+the Hill of Towie replication. This is the measured source of the +16.7%
+relative input-contamination magnitude used in the main protocol.
 """
 import json
 import sys
@@ -80,9 +71,9 @@ wdir = col("1301257", "FTAnem1_WndDirec_mean")
 capped = gen & (ref < 0.95) & (pwr > 0.90 * ref) & (pwr < 1.08 * ref)
 free = gen & (ref > 0.99)
 
-print("=== 样本基础 ===")
+print("=== Sample base ===")
 for t in HEALTHY:
-    print("%-9s 发电帧=%5d  其中限功(已跟踪)=%5d (%.1f%%)  未限功=%5d" % (
+    print("%-9s generating=%5d  capped-and-tracked=%5d (%.1f%%)  free=%5d" % (
         t, int(gen[t].sum()), int(capped[t].sum()),
         100 * capped[t].sum() / max(gen[t].sum(), 1), int(free[t].sum())))
     OUT["sample_base"].append({
@@ -95,9 +86,9 @@ for t in HEALTHY:
 n_cap = capped.sum(axis=1)
 n_free = free.sum(axis=1)
 usable = (n_cap >= 1) & (n_free >= 1)
-print("\n可用于 DiD 的时刻（同时存在限功机与未限功机）: %d 帧 (%.1f%% of all)" % (
+print("\nDiD-eligible timestamps with both capped and free turbines: %d frames (%.1f%% of all)" % (
     int(usable.sum()), 100 * usable.mean()))
-print("  其中限功机数分布:", dict(n_cap[usable].value_counts().sort_index().astype(int)))
+print("  capped-turbine count distribution:", dict(n_cap[usable].value_counts().sort_index().astype(int)))
 
 # ---------- 构造配对长表 ----------
 records = []
@@ -133,7 +124,7 @@ for i in HEALTHY:
 long = pd.concat(records, ignore_index=True)
 long["v_bin"] = pd.cut(long["v_ref"], [0, 5, 6, 7, 8, 9, 10, 12, 30])
 long["day"] = pd.to_datetime(long["time"]).dt.floor("D")
-print("\n配对样本: treat=%d, base=%d, 机对数=%d" % (
+print("\nPaired rows: treat=%d, base=%d, turbine pairs=%d" % (
     (long.kind == "treat").sum(), (long.kind == "base").sum(), long.pair.nunique()))
 
 OUT["design"] = {
@@ -160,7 +151,7 @@ OUT["design"] = {
 
 # ---------- DiD 估计 ----------
 def did_estimate(frame, value="dv", strat=("pair", "v_bin")):
-    """按 (机对 x 风速区间) 分层做 DiD，再以处理组样本量加权汇总。"""
+    """Estimate stratified DiD and weight by treated-sample count."""
     t = frame[frame.kind == "treat"].groupby(list(strat), observed=True)[value].agg(["mean", "size"])
     b = frame[frame.kind == "base"].groupby(list(strat), observed=True)[value].agg(["mean", "size"])
     joined = t.join(b, lsuffix="_t", rsuffix="_b", how="inner")
@@ -173,7 +164,7 @@ def did_estimate(frame, value="dv", strat=("pair", "v_bin")):
 
 
 def block_bootstrap_ci(frame, value="dv", n_boot=N_BOOT):
-    """按天分块重采样（时间自相关 + 场级同步限功的聚类结构）。"""
+    """Use a day-block bootstrap for temporal and farm-level dependence."""
     days = frame["day"].unique()
     out = []
     for _ in range(n_boot):
@@ -191,18 +182,18 @@ def block_bootstrap_ci(frame, value="dv", n_boot=N_BOOT):
 
 
 print("\n" + "=" * 78)
-print("=== 主结果 A: 机舱风速污染 Δv (m/s，正=限功时读数偏高) ===")
+print("=== Main result A: nacelle-wind contamination delta-v (positive = upward bias) ===")
 print("=" * 78)
-for value, unit, label in (("dv", "m/s", "机舱风速"),
-                           ("dv_rel", "-", "风速相对偏差"),
-                           ("dpitch", "deg", "桨距角A"),
-                           ("drpm", "rpm", "发电机转速"),
-                           ("dti", "-", "湍流强度"),
-                           ("damb", "degC", "环境温度[安慰剂]"),
-                           ("dyaw", "deg", "偏航位置[设计检验]")):
+for value, unit, label in (("dv", "m/s", "nacelle wind speed"),
+                           ("dv_rel", "-", "relative wind-speed bias"),
+                           ("dpitch", "deg", "pitch angle A"),
+                           ("drpm", "rpm", "generator speed"),
+                           ("dti", "-", "turbulence intensity"),
+                           ("damb", "degC", "ambient temperature [placebo]"),
+                           ("dyaw", "deg", "yaw position [design check]")):
     est, n, k = did_estimate(long, value)
     ci, boots = block_bootstrap_ci(long, value, n_boot=800)
-    star = "  <-- 显著" if (ci[0] > 0) or (ci[2] < 0) else "  (不显著)"
+    star = "  <-- significant" if (ci[0] > 0) or (ci[2] < 0) else "  (not significant)"
     print("%-16s DiD = %+8.3f %-5s  95%%CI [%+.3f, %+.3f]  n=%5d L=%3d%s" % (
         label, est, unit, ci[0], ci[2], n, k, star))
     OUT["channels"].append({
@@ -215,7 +206,7 @@ for value, unit, label in (("dv", "m/s", "机舱风速"),
     })
 
 ci, boots = block_bootstrap_ci(long, "dv")
-print("\n机舱风速 Δv 的日块 bootstrap 95%% CI: [%+.3f, %+.3f]  中位数 %+.3f m/s (B=%d)" % (
+print("\nDay-block bootstrap 95%% CI for nacelle-wind delta-v: [%+.3f, %+.3f]; median %+.3f m/s (B=%d)" % (
     ci[0], ci[2], ci[1], len(boots)))
 print("  p(Δv>0) = %.4f" % float((boots > 0).mean()))
 
@@ -232,8 +223,8 @@ OUT["headline"] = {
     "adopted_by_main_protocol": "relative_delta -> contamination.relative_delta = 0.167",
 }
 
-print("\n--- 按参照机风速分层：加性偏差 vs 乘性偏差 ---")
-print("%-12s %8s %10s %10s" % ("v_ref区间", "n_treat", "Δv(m/s)", "Δv/v"))
+print("\n--- By reference-turbine wind band: additive versus multiplicative bias ---")
+print("%-12s %8s %10s %10s" % ("v_ref band", "n_treat", "delta-v", "delta-v/v"))
 for lvl in long["v_bin"].cat.categories:
     sub = long[long.v_bin == lvl]
     if (sub.kind == "treat").sum() < 30:
@@ -245,11 +236,11 @@ for lvl in long["v_bin"].cat.categories:
                              "delta_v_ms": float(e_a), "relative_delta": float(e_r)})
 
 print("\n" + "=" * 78)
-print("=== 主结果 B: 污染幅度随限功深度的变化（机制检验）===")
+print("=== Main result B: contamination by cap depth (mechanism check) ===")
 print("=" * 78)
 long["depth_bin"] = pd.cut(long["depth"], [0, 0.25, 0.4, 0.6, 0.95],
                            labels=["<0.25", "0.25-0.4", "0.4-0.6", "0.6-0.95"])
-print("%-12s %8s %10s %10s %10s" % ("限功档位pu", "n_treat", "Δv(m/s)", "Δpitch", "Δrpm"))
+print("%-12s %8s %10s %10s %10s" % ("cap-depth pu", "n_treat", "delta-v", "delta-pitch", "delta-rpm"))
 for lvl in ["<0.25", "0.25-0.4", "0.4-0.6", "0.6-0.95"]:
     sub = long[(long.kind == "base") | (long.depth_bin == lvl)]
     e_v, n, _ = did_estimate(sub, "dv")
@@ -261,7 +252,7 @@ for lvl in ["<0.25", "0.25-0.4", "0.4-0.6", "0.6-0.95"]:
                          "delta_rpm": float(e_r)})
 
 print("\n" + "=" * 78)
-print("=== 主结果 C: 污染的功率含义（经未限功功率曲线放大）===")
+print("=== Main result C: power implications through the free-generation power curve ===")
 print("=" * 78)
 # 用全部未限功发电样本拟合经验功率曲线 P(v)，取局部斜率
 fv, fp = [], []
@@ -279,7 +270,7 @@ for lo, hi in zip(edges[:-1], edges[1:]):
         curve.append(np.median(fp[m]))
 centers, curve = np.asarray(centers), np.asarray(curve)
 slope = np.gradient(curve, centers)  # dP/dv, pu per (m/s)
-print("经验功率曲线（未限功样本 n=%d）局部斜率 dP/dv:" % len(fv))
+print("Local slope dP/dv of the empirical free-generation power curve (n=%d):" % len(fv))
 for c, p, s in zip(centers, curve, slope):
     if 4 <= c <= 13:
         print("   v=%4.1f m/s  P=%.3f pu  dP/dv=%.4f pu/(m/s)" % (c, p, s))
@@ -289,13 +280,13 @@ OUT["design"]["n_free_samples_for_power_curve"] = int(len(fv))
 
 dv_est, _, _ = did_estimate(long, "dv")
 rel_est, _, _ = did_estimate(long, "dv_rel")
-print("\n若把被污染的机舱风速直接送入 PAP 模型，等效功率偏差 = dP/dv x Δv：")
-print("   （加性口径 Δv=%+.3f m/s；乘性口径 Δv=%+.1f%% x v）" % (dv_est, 100 * rel_est))
+print("\nEquivalent power bias from using contaminated nacelle wind: dP/dv x delta-v")
+print("   (additive delta-v=%+.3f m/s; multiplicative delta-v=%+.1f%% x v)" % (dv_est, 100 * rel_est))
 for target in (6.0, 7.0, 8.0, 9.0, 10.0, 11.0):
     k = int(np.argmin(np.abs(centers - target)))
     c, s = centers[k], slope[k]
     add, mul = s * dv_est, s * rel_est * c
-    print("   v≈%4.1f m/s (dP/dv=%.4f): 加性 %+.4f pu (%+6.1f kW) | 乘性 %+.4f pu (%+6.1f kW)"
+    print("   v~%4.1f m/s (dP/dv=%.4f): additive %+.4f pu (%+6.1f kW) | multiplicative %+.4f pu (%+6.1f kW)"
           % (c, s, add, add * RATED, mul, mul * RATED))
     OUT["power_implication"].append({
         "v_ms": float(c), "dP_dv_pu_per_ms": float(s),
@@ -305,13 +296,13 @@ for target in (6.0, 7.0, 8.0, 9.0, 10.0, 11.0):
     })
 
 print("\n" + "=" * 78)
-print("=== 主结果 D: 事件研究交叉验证（机组自身作参照）===")
+print("=== Main result D: transition event-study cross-check ===")
 print("=" * 78)
 K = 3   # 事件前后各取 3 帧（30 min）
 
 
 def event_study(direction):
-    """direction='onset': free->capped; 'release': capped->free。返回每事件的 DiD 列表。"""
+    """Return event-level DiD for onset or release transitions."""
     est = []
     for i in HEALTHY:
         a, b = (free[i], capped[i]) if direction == "onset" else (capped[i], free[i])
@@ -332,10 +323,11 @@ def event_study(direction):
     return np.asarray(est)
 
 
-for direction, label, sign in (("onset", "限功投入", "应为正"), ("release", "限功解除", "应为负")):
+for direction, label, sign in (("onset", "curtailment onset", "expected positive"),
+                               ("release", "curtailment release", "expected negative")):
     e = event_study(direction)
     if len(e) < 10:
-        print("%-8s 样本不足 (n=%d)" % (label, len(e)))
+        print("%-20s insufficient sample (n=%d)" % (label, len(e)))
         OUT["event_study"].append({
             "direction": direction, "label": label, "expected_sign": sign,
             "n_event_pairs": int(len(e)), "reported": False,
@@ -343,7 +335,7 @@ for direction, label, sign in (("onset", "限功投入", "应为正"), ("release
         })
         continue
     boot = np.array([RNG.choice(e, len(e), replace=True).mean() for _ in range(2000)])
-    print("%-8s Δv = %+.3f m/s  95%%CI [%+.3f, %+.3f]  (事件对 n=%d, %s)" % (
+    print("%-20s delta-v = %+.3f m/s  95%%CI [%+.3f, %+.3f]  (event pairs n=%d, %s)" % (
         label, e.mean(), np.quantile(boot, 0.025), np.quantile(boot, 0.975), len(e), sign))
     OUT["event_study"].append({
         "direction": direction, "label": label, "expected_sign": sign,
@@ -372,4 +364,4 @@ with (OUT_DIR / "alta2_did_headline.json").open("w", encoding="utf-8") as fh:
                "by_wind_band": OUT["wind_band"], "by_depth": OUT["depth"]},
               fh, ensure_ascii=False, indent=2)
 
-print("\n已落盘: %s (7 CSV + 1 JSON)" % OUT_DIR)
+print("\nSaved to %s (7 CSV + 1 JSON)" % OUT_DIR)

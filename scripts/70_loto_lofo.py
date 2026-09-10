@@ -1,25 +1,20 @@
 # -*- coding: utf-8 -*-
-"""Step 70: C2 跨机组/跨场站泛化（LOTO/LOFO，池化训练）。
+"""Step 70: evaluate cross-turbine and cross-farm transfer (LOTO/LOFO, C2).
 
-runner 仅支持单数据集，故本脚本直接复用 benchmark 包的数据契约与 adapter
-接口实现池化训练：
+The standard runner accepts one dataset, so this script reuses its data and
+adapter contracts for pooled training. All folds use a 10-min grid, 60-min
+history, and 10-min horizon; HOT records are downsampled within segments.
 
-统一网格：所有折叠均在 10-min 网格上（HOT 1-min 帧按段内等间隔降采样 10 倍，
-段长不足 window+horizon 的丢弃并重建段号）；window=60 min、horizon=10 min。
+The design includes five LOTO-ALTA2 folds, eight LOTO-HOT folds, ALTA2-to-HOT
+LOFO tests, and HOT-to-ALTA2 LOFO tests. Scenarios are S1 and S4; learned models
+are B4, B6, and CLQR with seeds 42 and 123, plus persistence as a no-fit
+reference. Fitting receives observable views only, prediction receives
+features only, and standardization is estimated from the pooled training side.
 
-折叠设计：
-- LOTO-ALTA2：5 折，留出 1 台 ALTA2，其余 4 台池化训练；
-- LOTO-HOT  ：8 折，留出 1 台 HOT（10-min 网格），其余 7 台池化训练；
-- LOFO ALTA2→HOT：全部 5 台 ALTA2 池化训练，逐台 HOT 测试；
-- LOFO HOT→ALTA2：全部 8 台 HOT 池化训练，逐台 ALTA2 测试。
+Outputs are appended under ``results/loto_lofo/`` and completed cells are
+skipped on rerun.
 
-场景 S1_fixed_50pct / S4_random_uniform；模型 B4/B6/CLQR；种子 42/123。
-另记录 persistence 参照（无训练）。信息隔离与主协议一致：fit 仅观测视图，
-predict 仅特征；标准化统计只取池化训练侧。
-
-输出：results/loto_lofo/{loto_lofo_protocol.json, loto_lofo_results.csv}
-（CSV 逐行追加，重跑自动跳过已完成单元）。
-用法：
+Usage:
     python scripts/70_loto_lofo.py --smoke
     python scripts/70_loto_lofo.py --all
     python scripts/70_loto_lofo.py --folds loto_alta2 lofo_alta2_to_hot

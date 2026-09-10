@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
-"""Step 68: A2 分箱敏感性三格对比表（bins=53/106/212）。
+"""Step 68: build the 53/106/212-bin sensitivity table (A2).
 
-从三套结果目录读取 B4/B6/ORACLE 的 WIS/CRPS 汇总（各 3 种子均值与标准差），
-拼成 场景×模型×分箱数 的敏感性对比表，用于支撑"分箱宽度不改变结论"的稳健性论证。
+Read the three result directories and combine B4, B6, and ORACLE WIS/CRPS
+summaries into a scenario-by-model-by-resolution table. The table supports the
+claim that PMF resolution does not change the qualitative conclusion.
 
-数据源：
-- results/pap_benchmark_semisyn_bins53/   （n_bins=53）
-- results/pap_benchmark_semisyn/          （n_bins=106，主协议，仅取 B4/B6/ORACLE）
-- results/pap_benchmark_semisyn_bins212/  （n_bins=212）
+Outputs: ``results/bins_sensitivity/bins_sensitivity_table.csv`` and
+``bins_sensitivity.json``.
 
-输出：results/bins_sensitivity/bins_sensitivity_table.csv + bins_sensitivity.json
-用法：python scripts/68_bins_sensitivity_table.py
+Usage: ``python scripts/68_bins_sensitivity_table.py``
 """
 from __future__ import annotations
 

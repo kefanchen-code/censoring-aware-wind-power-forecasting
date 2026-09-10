@@ -1,0 +1,484 @@
+{
+  "protocol_freeze": {
+    "protocol_document": "protocols/release_event_protocol_v1_3.md",
+    "protocol_version": "v1.3-reconstructed",
+    "protocol_sha256": "0a383eacf09796f42b09f29f7a8e0d9fae3ac4c814ad6cae9c733b0a5b6b2739",
+    "legacy_v1_2_protocol_sha256_unrecovered": "8aa3bca2cce62a559cb55d803d18beb41ea26535473976e654c3cce40772d1bf",
+    "reconstruction_status": "replacement reconstructed from executable code and frozen artifacts; not a byte-for-byte recovery of v1.2",
+    "event_list": "results/altahullion_audit/qualified_release_events.csv",
+    "event_list_sha256": "e351c076d155dea95d94047b2c5a0bc365c7a680b9a859565695df36387d63fe",
+    "event_list_sha256_scope": "legacy v1.2 CRLF bytes",
+    "event_list_canonical_sha256": "a7f4c8e896f05453b323071659c2079ba1600dd6ca7083c37415ecc7170723de",
+    "event_list_file_sha256_at_freeze": "e351c076d155dea95d94047b2c5a0bc365c7a680b9a859565695df36387d63fe",
+    "event_count_frozen": 122,
+    "frozen_utc": "2026-08-25T05:13:47.656530+00:00"
+  },
+  "event_accounting": {
+    "frozen_total": 122,
+    "in_test_period": 11,
+    "usable_with_clean_history": 10,
+    "in_test_but_invalid_history": 1,
+    "invalid_history_all_events": 26
+  },
+  "split_window_counts": {
+    "train": 74616,
+    "validation": 11878,
+    "test": 34112
+  },
+  "seeds": [
+    42,
+    123,
+    256
+  ],
+  "models": [
+    "B0_climatology",
+    "B0_persistence",
+    "B1",
+    "B4",
+    "B6",
+    "CLQR"
+  ],
+  "sensitivity_stratum_share_post_rise_gt_10pct": 0.4,
+  "comparisons": [
+    {
+      "family": "censored_likelihood",
+      "reference": "B4",
+      "challenger": "B6",
+      "horizon_min": 1,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.625,
+      "observed_difference": -0.014764585470159847,
+      "p_holm_within_family": 0.625
+    },
+    {
+      "family": "censored_quantile",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "horizon_min": 1,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.65625,
+      "observed_difference": -0.013378089169661203,
+      "p_holm_within_family": 0.65625
+    },
+    {
+      "family": "censored_likelihood_vs_free_only",
+      "reference": "B1",
+      "challenger": "B6",
+      "horizon_min": 1,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.28125,
+      "observed_difference": -0.026040412144114577,
+      "p_holm_within_family": 0.28125
+    },
+    {
+      "family": "censored_likelihood",
+      "reference": "B4",
+      "challenger": "B6",
+      "horizon_min": 5,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.046875,
+      "observed_difference": -0.054766904531667625,
+      "p_holm_within_family": 0.140625
+    },
+    {
+      "family": "censored_quantile",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "horizon_min": 5,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.0625,
+      "observed_difference": -0.048333483096212146,
+      "p_holm_within_family": 0.1875
+    },
+    {
+      "family": "censored_likelihood_vs_free_only",
+      "reference": "B1",
+      "challenger": "B6",
+      "horizon_min": 5,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.015625,
+      "observed_difference": -0.05478621227666734,
+      "p_holm_within_family": 0.046875
+    },
+    {
+      "family": "censored_likelihood",
+      "reference": "B4",
+      "challenger": "B6",
+      "horizon_min": 15,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.15625,
+      "observed_difference": -0.0358047762264808,
+      "p_holm_within_family": 0.3125
+    },
+    {
+      "family": "censored_quantile",
+      "reference": "B4",
+      "challenger": "CLQR",
+      "horizon_min": 15,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.265625,
+      "observed_difference": -0.026004922576248646,
+      "p_holm_within_family": 0.53125
+    },
+    {
+      "family": "censored_likelihood_vs_free_only",
+      "reference": "B1",
+      "challenger": "B6",
+      "horizon_min": 15,
+      "n_events": 10,
+      "method": "exact_sign_flip",
+      "n_clusters": 7,
+      "p_two_sided": 0.109375,
+      "observed_difference": -0.03718512530128161,
+      "p_holm_within_family": 0.21875
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B0_persistence",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.0016411224380135537
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B0_climatology",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.0016411224380135537
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B1",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.013598755591859418
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B1",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.015239878029872969
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B4",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.002322928917904693
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B4",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.003964051355918247
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.012441656552255154
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B6",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.010800534114241603
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "CLQR",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.011055160251756504
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "CLQR",
+      "horizon_min": 1,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.009414037813742959
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B0_persistence",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.0010610534809529781
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B0_climatology",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.0010610534809529781
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B1",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.012690799062450728
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B1",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.013751852543403706
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B4",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.012671491317451
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B4",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.013732544798403978
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.04209541321421663
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B6",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.04103435973326365
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "CLQR",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.03566199177876115
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "CLQR",
+      "horizon_min": 5,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.034600938297808165
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B0_persistence",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.01263735294342041
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B0_climatology",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.01263735294342041
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B1",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.0204414214938879
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B1",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.007804068550467493
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B4",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.01906107241908709
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B4",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": 0.006423719475666681
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "B6",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.01674370380739371
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "B6",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.029381056750814115
+    },
+    {
+      "family": "reporting_vs_B0_persistence",
+      "reference": "B0_persistence",
+      "challenger": "CLQR",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.006943850157161558
+    },
+    {
+      "family": "reporting_vs_B0_climatology",
+      "reference": "B0_climatology",
+      "challenger": "CLQR",
+      "horizon_min": 15,
+      "n_events": 10,
+      "mean_difference_reference_minus_challenger": -0.019581203100581965
+    }
+  ],
+  "fit_metadata": {
+    "B0_persistence_seed42": {
+      "converged": null,
+      "best_epoch": null,
+      "epochs_run": null
+    },
+    "B0_persistence_seed123": {
+      "converged": null,
+      "best_epoch": null,
+      "epochs_run": null
+    },
+    "B0_persistence_seed256": {
+      "converged": null,
+      "best_epoch": null,
+      "epochs_run": null
+    },
+    "B0_climatology_seed42": {
+      "converged": null,
+      "best_epoch": null,
+      "epochs_run": null
+    },
+    "B0_climatology_seed123": {
+      "converged": null,
+      "best_epoch": null,
+      "epochs_run": null
+    },
+    "B0_climatology_seed256": {
+      "converged": null,
+      "best_epoch": null,
+      "epochs_run": null
+    },
+    "B1_seed42": {
+      "converged": true,
+      "best_epoch": 25,
+      "epochs_run": 31
+    },
+    "B1_seed123": {
+      "converged": true,
+      "best_epoch": 23,
+      "epochs_run": 29
+    },
+    "B1_seed256": {
+      "converged": true,
+      "best_epoch": 14,
+      "epochs_run": 20
+    },
+    "B4_seed42": {
+      "converged": true,
+      "best_epoch": 21,
+      "epochs_run": 27
+    },
+    "B4_seed123": {
+      "converged": true,
+      "best_epoch": 26,
+      "epochs_run": 32
+    },
+    "B4_seed256": {
+      "converged": true,
+      "best_epoch": 20,
+      "epochs_run": 26
+    },
+    "B6_seed42": {
+      "converged": true,
+      "best_epoch": 13,
+      "epochs_run": 19
+    },
+    "B6_seed123": {
+      "converged": true,
+      "best_epoch": 15,
+      "epochs_run": 21
+    },
+    "B6_seed256": {
+      "converged": true,
+      "best_epoch": 11,
+      "epochs_run": 17
+    },
+    "CLQR_seed42": {
+      "converged": true,
+      "best_epoch": 7,
+      "epochs_run": 13
+    },
+    "CLQR_seed123": {
+      "converged": true,
+      "best_epoch": 12,
+      "epochs_run": 18
+    },
+    "CLQR_seed256": {
+      "converged": true,
+      "best_epoch": 11,
+      "epochs_run": 17
+    }
+  }
+}

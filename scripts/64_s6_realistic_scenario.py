@@ -1,24 +1,26 @@
 # -*- coding: utf-8 -*-
-"""Step 64: 生成 S6_realistic 经验指令注入场景（C3）。
+"""Step 64: generate the empirically parameterized S6 scenario (C3).
 
-底本：与 S1-S5 完全同源的 342 段自由发电记录（scripts/10_altahullion_audit.py
-的 eligible_u_segments，真值 A_true 已知）。注入的限功事件时长与深度不再取
-构造值，而是从 scripts/62_real_command_stats.py 统计的 ALTA2 T11 真实指令
-经验分布中抽样：
+The substrate is the same 342 free-generation segments used for S1-S5, with
+known latent truth. Event durations and depths are sampled from the ALTA2 T11
+command distribution estimated by script 62 instead of from designed values.
 
-- 目标限功分钟占比 = ALTA2 实测活跃限功分钟 / (自由 + 活跃限功) ≈ 42.7%，
-  取代 S1-S4 的构造值 60%；
-- 事件时长 ~ ALTA2 经验时长分布（中位 6 min、p95 ≈ 377 min、重尾）；
-- 事件深度 ~ ALTA2 经验深度分布（中位 0.943，即多数指令接近深度限制），
-  cap = 额定 × (1 - 深度)，下限 2% 额定；
-- 事件在段内不重叠、非持久（逐事件独立起止），与真实指令的突发形态一致。
+- The target curtailed-minute share is the observed ALTA2 active-curtailment
+  share (about 42.7%) rather than the designed 60% used for S1-S4.
+- Event durations follow the empirical heavy-tailed distribution (median
+  6 min; 95th percentile about 377 min).
+- Event depths follow the empirical distribution (median 0.943), with a cap
+  floor of 2% rated power.
+- Events are non-overlapping within segments and have independent starts and
+  stops, matching the burst-like form of real commands.
 
-HOT 的同步性（≥半机同步占限功分钟 57.8%）无法在单机半合成中表达，
-只在协议生态效度一节作为场级证据引用，不进入本场景。
+HOT farm-level simultaneity cannot be represented in this single-turbine
+semi-synthetic scenario and is retained only as ecological-validity evidence.
 
-输出：results/s6_realistic/synthetic_S6_realistic.parquet + s6_scenario_summary.json
+Outputs: ``results/s6_realistic/synthetic_S6_realistic.parquet`` and
+``s6_scenario_summary.json``.
 
-用法：
+Usage:
     python scripts/64_s6_realistic_scenario.py
 """
 from __future__ import annotations

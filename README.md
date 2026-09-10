@@ -1,8 +1,8 @@
 # Censoring-aware wind-power forecasting
 
-Code and reproducibility materials for the manuscript **“Censoring-aware
-probabilistic forecasting of single-turbine potential available power in
-directly coupled wind-to-hydrogen microgrids.”**
+Code and reproducibility materials for the manuscript **“Probabilistic
+forecasting of potential available power under control-induced censoring for a
+one-turbine wind-to-hydrogen off-grid microgrid.”**
 
 This repository implements probabilistic forecasting of potential available
 power (PAP) when turbine power observations are right-censored by control caps.
@@ -12,9 +12,9 @@ matched point-label, deletion, reconstruction, quantile, censored-quantile,
 Tobit, persistence, climatology, and full-label reference models used in the
 paper.
 
-> **Release status:** private pre-submission release candidate. The scientific
-> code and core tests are complete, but the public release is blocked until the
-> items in [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) are resolved.
+> **Release status:** version 1.0.0. The scientific files and reference outputs
+> have been independently reproduced from freshly downloaded data. The version
+> DOI will be linked here after Zenodo completes archival of the tagged release.
 
 ## Repository contents
 
@@ -35,9 +35,11 @@ not part of this Paper 1 repository.
 ## Environment
 
 The manuscript results were generated on Windows with Python 3.9.7, PyTorch
-2.8.0+cu128, and an NVIDIA GeForce RTX 4060 Laptop GPU. Exact package versions
-are recorded in [environment.yml](environment.yml) and
-[requirements-lock.txt](requirements-lock.txt).
+2.8.0+cu128, and an NVIDIA GeForce RTX 4060 Laptop GPU. The exact CUDA build and
+direct dependency versions are specified in [environment.yml](environment.yml).
+The CPU-compatible direct dependencies used for clean installation and tests
+are pinned in [requirements.txt](requirements.txt). These files are
+reproducible dependency specifications, not transitive lock files.
 
 ```bash
 conda env create -f environment.yml
@@ -64,6 +66,26 @@ python paper_assets/figures/make_figures_paper1.py
 ```
 
 The generated SVG, PDF, and PNG files are written to `figures/`.
+
+## Model names used in the paper and code
+
+Machine-readable configurations and result files retain stable internal model
+identifiers. The following table maps them to the display names used in the
+manuscript and figures.
+
+| Internal identifier | Manuscript name | Description |
+| --- | --- | --- |
+| `B0_persistence` | Persistence | Last-observation reference forecast |
+| `B0_climatology` | Climatology | Training-only empirical climatology |
+| `B1` | DEL | TCN trained only on uncensored targets |
+| `B2_recon` | REC | TCN trained on power-curve-reconstructed labels |
+| `B4_plain` | PL-basic | Point-label TCN without cap or censoring inputs |
+| `B4` | PL | Point-label TCN with the full observable input set |
+| `B6` | CL-PMF | Proposed discrete censored-likelihood model |
+| `BQR` | QR | Direct multi-quantile point-label TCN |
+| `CLQR` | CL-QR | Censoring-aware quantile-regression TCN |
+| `BT` | CL-Tobit | Heteroscedastic Gaussian censored-likelihood model |
+| `ORACLE` | ORC | Same-architecture reference trained on latent truth |
 
 ## Reproduce the main benchmark
 
@@ -143,11 +165,15 @@ is a separately hashed reconstruction from the executable code and frozen
 
 These contracts are exercised directly by the test suite.
 
-## Citation and license
+## Citation and licences
 
-Citation metadata are available in [CITATION.cff](CITATION.cff). A software DOI
-will be added after the submission release is archived in Zenodo.
+Citation metadata are available in [CITATION.cff](CITATION.cff). The version DOI
+will be added after Zenodo completes archival of the tagged release.
+Release contents and data-scope notes are recorded in
+[CHANGELOG.md](CHANGELOG.md).
 
-No open-source license has yet been selected. Until a `LICENSE` file is added,
-copyright permission to reuse the source code is not granted. The two source
-datasets have their own CC BY 4.0 licenses; see [DATA.md](DATA.md).
+The source code is copyright 2026 Kefan Chen and is released under the BSD
+3-Clause License; see [LICENSE](LICENSE). The source datasets and tracked
+derived data artifacts are covered separately by CC BY 4.0; see
+[LICENSE-DATA](LICENSE-DATA), [DATA.md](DATA.md), and
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

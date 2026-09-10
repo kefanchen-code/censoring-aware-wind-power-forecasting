@@ -1,12 +1,18 @@
 """Generate the six quantitative Paper 1 figures from saved result summaries.
 
-图契约：
-- 图 1 删失机制与信息隔离示意（schematic）：限功把真值压成下界；真值只进评分不进训练。
-- 图 2 主结果（quant）：CL-PMF 收复 PL 的损失、逼近 ORC；S5 覆盖率坍缩。
-- 图 3 单因子链 + 三分量分解：增益来自似然、来自 underprediction 修复。
-- 图 4 S5 覆盖率曲线：边界在 90% 处坍缩，Tobit 部分保持。
-- 图 5 S0 等价带 + 污染稳健性：该零处严格为零；污染下优势保持。
-- 图 6 多风机方向一致性 + LOTO/LOFO：跨机组跨风场方向一致（反转如实标注）。
+Figure contract:
+- Figure 1: censoring and information separation; control limits convert
+  latent truth into a lower bound, and latent truth is used only for scoring.
+- Figure 2: main results; CL-PMF recovers the loss of PL and approaches ORC,
+  while S5 coverage collapses.
+- Figure 3: matched-factor chain and WIS-component decomposition; gains arise
+  from the likelihood and reduced underprediction.
+- Figure 4: S5 coverage curve; coverage collapses at 90%, with partial
+  retention by CL-Tobit.
+- Figure 5: S0 equivalence and contamination robustness; exact zero remains
+  zero and the advantage persists under contamination.
+- Figure 6: cross-turbine direction and LOTO/LOFO results, with reversals
+  reported explicitly.
 """
 import argparse
 from pathlib import Path
@@ -55,7 +61,7 @@ def save_pub(fig, name):
 
 
 def set_ticks(ax, ticks, labels, axis="x", **kw):
-    """兼容老版 matplotlib：ticks 与 labels 分两步设置。"""
+    """Set tick positions and labels separately for older Matplotlib."""
     if axis == "x":
         ax.set_xticks(ticks)
         ax.set_xticklabels(labels, **kw)

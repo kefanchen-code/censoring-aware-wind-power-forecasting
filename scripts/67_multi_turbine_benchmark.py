@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Step 67: C2 多机组双场站精简协议运行器。
+"""Step 67: run the reduced two-farm multi-turbine protocol (C2).
 
-为 results/multi_turbine_validation/data/ 下每台机组生成独立基准配置
-（场景 S0/S1/S4/S5 × 模型链 B0_persistence/B2_recon/B4/B6/CLQR/ORACLE
-× 3 种子 [42,123,256]），逐一交给既有 runner 执行，产物写入
-results/multi_turbine_validation/runs/{farm}_{turbine}/。
+Generate one benchmark configuration per prepared turbine for scenarios
+S0/S1/S4/S5 and models B0_persistence, B2_recon, B4, B6, CLQR, and ORACLE.
+ALTA2 uses a 10-min horizon and three seeds; HOT uses a 15-min horizon and one
+seed. Both use a 60-min history. Turbine-specific protocol identifiers keep
+these runs separate from the frozen main benchmark.
 
-采样差异：ALTA2 10-min 机组 horizon=10 min（1 步）；HOT 1-min 机组
-horizon=15 min。窗口均为 60 min。protocol_id 由各机组配置独立派生，
-互不干扰冻结的主基准产物。
-
-用法：
+Usage:
     python scripts/67_multi_turbine_benchmark.py --list
     python scripts/67_multi_turbine_benchmark.py --smoke ALTA2_1301253
     python scripts/67_multi_turbine_benchmark.py ALTA2_1301253 HOT_T01 ...
