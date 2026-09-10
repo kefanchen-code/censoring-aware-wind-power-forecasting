@@ -12,7 +12,7 @@
 - [x] Run the full benchmark from freshly downloaded data and compare all paper numbers.
 - [x] Run a secret and personal-path scan on the final Git tree.
 - [x] Replace this private candidate with a tagged `v1.0.0` release.
-- [ ] Archive the tagged release in Zenodo and add its version DOI to `CITATION.cff` and the manuscript.
+- [x] Archive the tagged release in Zenodo and add its version DOI to `CITATION.cff` and the manuscript.
 
 ## Already completed in this candidate
 
