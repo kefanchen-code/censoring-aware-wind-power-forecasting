@@ -1,5 +1,7 @@
 # Censoring-aware wind-power forecasting
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22693210.svg)](https://doi.org/10.5281/zenodo.22693210)
+
 Code and reproducibility materials for the manuscript **“Probabilistic
 forecasting of potential available power under control-induced censoring for a
 one-turbine wind-to-hydrogen off-grid microgrid.”**
@@ -13,8 +15,8 @@ Tobit, persistence, climatology, and full-label reference models used in the
 paper.
 
 > **Release status:** version 1.0.0. The scientific files and reference outputs
-> have been independently reproduced from freshly downloaded data. The version
-> DOI will be linked here after Zenodo completes archival of the tagged release.
+> have been independently reproduced from freshly downloaded data and archived
+> on Zenodo at [10.5281/zenodo.22693210](https://doi.org/10.5281/zenodo.22693210).
 
 ## Repository contents
 
@@ -167,8 +169,9 @@ These contracts are exercised directly by the test suite.
 
 ## Citation and licences
 
-Citation metadata are available in [CITATION.cff](CITATION.cff). The version DOI
-will be added after Zenodo completes archival of the tagged release.
+Citation metadata are available in [CITATION.cff](CITATION.cff). Please cite the
+archived version 1.0.0 release using DOI
+[10.5281/zenodo.22693210](https://doi.org/10.5281/zenodo.22693210).
 Release contents and data-scope notes are recorded in
 [CHANGELOG.md](CHANGELOG.md).
 

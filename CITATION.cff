@@ -4,6 +4,7 @@ type: software
 title: "Code for probabilistic forecasting of potential available power under control-induced censoring for a one-turbine wind-to-hydrogen off-grid microgrid"
 version: 1.0.0
 date-released: 2026-09-10
+doi: 10.5281/zenodo.22693210
 authors:
   - family-names: Chen
     given-names: Kefan

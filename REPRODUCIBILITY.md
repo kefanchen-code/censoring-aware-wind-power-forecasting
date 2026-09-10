@@ -3,6 +3,9 @@
 Commands are expected to be run from the repository root after creating the
 environment and installing the package in editable mode.
 
+The immutable version 1.0.0 software archive is available from Zenodo at
+[10.5281/zenodo.22693210](https://doi.org/10.5281/zenodo.22693210).
+
 ## Model identifier map
 
 Configurations and archived outputs use stable internal identifiers, whereas
